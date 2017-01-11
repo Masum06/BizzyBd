@@ -1,0 +1,13 @@
+body{
+  background: #082330;
+}
+
+#mypic{
+  width: 40%;
+  float: left;
+  margin-right: 15px;
+}
+
+.image.main {
+  padding: 0;
+}
