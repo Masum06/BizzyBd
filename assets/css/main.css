@@ -71,7 +71,7 @@
 	}
 
 	body {
-		background: #1b1f22;
+		/*background: #1b1f22;*/
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after, body.is-switching *, body.is-switching *:before, body.is-switching *:after {
@@ -132,7 +132,7 @@
 		-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-		border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
+		border-bottom: dotted 1px rgba(162, 102, 254, 0.5); /*Masum*/
 		text-decoration: none;
 		color: inherit;
 	}
@@ -608,7 +608,7 @@
 			-webkit-pointer-events: none;
 			-ms-pointer-events: none;
 			pointer-events: none;
-			background-image: url("../../images/overlay.png");
+			/*background-image: url("../../images/overlay.png");*/
 			background-color: rgba(19, 21, 25, 0.5);
 			border-radius: 4px;
 			content: '';
@@ -1187,10 +1187,10 @@
 		-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
 		-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
 		transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
-		background-image: -moz-radial-gradient(rgba(0, 0, 0, 0.25) 25%, transparent 55%);
-		background-image: -webkit-radial-gradient(rgba(0, 0, 0, 0.25) 25%, transparent 55%);
-		background-image: -ms-radial-gradient(rgba(0, 0, 0, 0.25) 25%, transparent 55%);
-		background-image: radial-gradient(rgba(0, 0, 0, 0.25) 25%, transparent 55%);
+		/*background-image: -moz-radial-gradient(rgba(162, 102, 254, 0.25) 25%, transparent 55%);
+		background-image: -webkit-radial-gradient(rgba(162, 102, 254, 0.25) 25%, transparent 55%);
+		background-image: -ms-radial-gradient(rgba(162, 102, 254, 0.25) 25%, transparent 55%);
+		background-image: radial-gradient(rgba(162, 102, 254, 0.25) 25%, transparent 55%);*/
 		max-width: 100%;
 		text-align: center;
 	}
@@ -1479,9 +1479,13 @@
 			position: relative;
 			width: 40rem;
 			max-width: 100%;
-			background-color: rgba(27, 31, 34, 0.85);
+			background-color: rgba(2, 42, 103, 0.92);
 			border-radius: 4px;
 			opacity: 0;
+		}
+
+		#main article#about div{
+			padding: 10px;
 		}
 
 			#main article.active {

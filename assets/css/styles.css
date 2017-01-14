@@ -1,11 +1,21 @@
 body{
-  background: #082330;
+	background: red; 
+	background: -webkit-linear-gradient(45deg, rgb(162, 102, 254), rgb(255, 87, 87));
+	background: -o-linear-gradient(45deg, rgb(162, 102, 254), rgb(255, 87, 87)); 
+	background: -moz-linear-gradient(45deg, rgb(162, 102, 254), rgb(255, 87, 87)); 
+	background: linear-gradient(45deg, rgb(162, 102, 254), rgb(255, 87, 87)); 
+	color: white;
 }
+
+img {
+  pointer-events: none;
+} 
+
 
 #mypic{
   width: 40%;
   float: left;
-  margin-right: 15px;
+  margin: 10px;
 }
 
 .image.main {
