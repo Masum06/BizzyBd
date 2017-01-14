@@ -1467,6 +1467,7 @@
 	}
 
 		#main article {
+			/*box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.48);*/
 			-moz-transform: translateY(0.25rem);
 			-webkit-transform: translateY(0.25rem);
 			-ms-transform: translateY(0.25rem);
