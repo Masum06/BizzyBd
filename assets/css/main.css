@@ -13,7 +13,7 @@
 		margin: 0;
 		padding: 0;
 		border: 0;
-		font-size: 100%;
+		font-size: 110%;
 		font: inherit;
 		vertical-align: baseline;
 	}
@@ -92,7 +92,7 @@
 /* Type */
 
 	html {
-		font-size: 16pt;
+		font-size: 20pt;
 	}
 
 		@media screen and (max-width: 1680px) {
