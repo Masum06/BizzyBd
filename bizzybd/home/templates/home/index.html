@@ -6,5 +6,45 @@
 <body>
 <h1 align="center"> Bizzybd Home Page </h1> 
 
+
+
+
+  <div class="reg-page">
+      <div class="reg-header">
+          <h2>Login to your account</h2>
+      </div>
+
+      <a href="{% url 'social:begin' 'google-oauth2' %}?next=/"
+         class="no-hover-text-decoration">
+          <button class="btn btn-block btn-googleplus margin-bottom-10">
+              <i class="fa fa-google"></i> Login With Google
+          </button>
+
+      </a>
+
+      <a href="{% url 'social:begin' 'facebook' %}?next=/" class="no-hover-text-decoration">
+          <button class="btn btn-block btn-facebook margin-bottom-10">
+              <i class="fa fa-facebook"></i> Login With Facebook
+          </button>
+      </a>
+  </div>
+
+
+  {% if user.is_authenticated %}
+        
+    <li>
+        <a href="{% url 'auth:logout' %}?next={{ request.path }}">
+            LOGOUT</a>
+    </li>
+  
+  {% else %}
+      <h1> Not logged in</h1> 
+  {% endif %}
+
+
+
+
+
+
 </body>
 </html>

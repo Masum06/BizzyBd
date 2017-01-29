@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',
     'common',
     'home',
 )
@@ -106,3 +107,22 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "server_static")
+
+
+#  python social auth settings
+# https://console.developers.google.com/
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "177712972981-vdr72075acg8rm971huo4ghf1lmfr1j5.apps.googleusercontent.com"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "B13ABzt25MmYHFUUS5Y3b4VA"
+
+# https://developers.facebook.com/apps/?action=create
+SOCIAL_AUTH_FACEBOOK_KEY = '1739192396395315'
+SOCIAL_AUTH_FACEBOOK_SECRET = "cbaad4d849411bd27f2b279e883af6fd"
+# required to get email from facebook.
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'fields': 'id,name,email', }
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'first_name', 'email']
+AUTHENTICATION_BACKENDS = (
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
