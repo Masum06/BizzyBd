@@ -9,6 +9,12 @@ class IndexView(View):
 
     def get(self, request, *args, **kwargs):
         title = request.get_host()
+        position = title.find('.bizzybd')
+        if (position != -1):
+            title = title[:position]
+        pos = title.find(':8000')
+        if(pos != -1):
+            title = title[:pos]
         context = {
             'title': title
         }
