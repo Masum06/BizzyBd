@@ -1,7 +1,7 @@
 appdirs==1.4.0
 defusedxml==0.4.1
 Django==1.10.5
-gunicorn==19.6.0
+django-subdomains==2.1.0
 oauthlib==2.0.1
 packaging==16.8
 PyJWT==1.4.2
