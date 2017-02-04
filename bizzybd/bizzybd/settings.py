@@ -126,3 +126,7 @@ AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+
+SESSION_COOKIE_DOMAIN = '.bizzylocal.com'
+# SESSION_COOKIE_DOMAIN = 'bizzybdid'

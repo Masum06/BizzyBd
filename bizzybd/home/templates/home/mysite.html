@@ -1,0 +1,23 @@
+ 
+
+
+
+
+  <div class="reg-header">
+      <h2>My Websites</h2>
+  </div>
+  <ul>
+  {% for website in mywebsites %}
+     <li><p> Website Name: {{ website }} </p></li>
+  {% endfor %}
+  </ul>
+
+
+<h1> Create New Website </h1>
+<form action="" method="post">
+
+  {% csrf_token %}
+  <p>{{ form }} .localhost</p>
+
+  <input type="submit">
+</form>
