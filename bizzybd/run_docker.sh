@@ -1,1 +1,1 @@
-docker run --name hello-world-django1 -v "$PWD":/usr/src/app -w /usr/src/app -p 8000:8000 -d django bash -c "pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
+sudo docker start -v /mnt/340048A400486EC4/Dropbox/Programming/Django/bizzybd/bizzybd/bizzybd:/usr/src/app -p 8000:8000 django_a3
