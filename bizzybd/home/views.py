@@ -6,6 +6,8 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+
 
 from common.models import Website
 from common.forms import WebsiteForm
@@ -58,6 +60,11 @@ class MysiteView(View):
         if(form.is_valid()):
             form.save(request.user)
             print("Website has been created")
+
+            new_website_url = "http://" + form.cleaned_data['name'] + settings.DOMAIN_NAME + ':8000'
+            print(new_website_url)
+            return redirect(new_website_url)
+            # return HttpResponseRedirect(new_website_url)
 
         else:
 
