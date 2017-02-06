@@ -17,18 +17,9 @@ from common.forms import WebsiteForm
 class IndexView(View):
 
     template_name = 'home/index.html'
-    template_sub_domain = 'home/sub_domain.html'
+    # template_sub_domain = 'home/sub_domain.html'
 
     def get(self, request, *args, **kwargs):
-        sub_domain_name = get_subdomain_name(request)
-        if sub_domain_name:
-            website = get_object_or_404(Website, name=sub_domain_name)
-            context = {
-                'website': website,
-                'is_owner': is_owner(website, request),
-            }
-            return render(request, self.template_sub_domain, context)
-        print("\n....not a subdomain name")
 
         context = {
             'title': "Bizzybd",

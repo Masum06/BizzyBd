@@ -38,11 +38,16 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social.apps.django_app.default',
+    'django.contrib.sites',
+    # 'django_hosts',
+    'subdomains',
     'common',
     'home',
 )
 
 MIDDLEWARE_CLASSES = (
+    'subdomains.middleware.SubdomainURLRoutingMiddleware',
+    # 'django_hosts.middleware.HostsRequestMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -51,9 +56,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    # 'django_hosts.middleware.HostsResponseMiddleware',
 )
 
-ROOT_URLCONF = 'bizzybd.urls'
+
 
 TEMPLATES = [
     {
@@ -128,5 +134,20 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
-SESSION_COOKIE_DOMAIN = '.bizzylocal.com'
+# SESSION_COOKIE_DOMAIN = '.bizzybdlocal.com'
 # SESSION_COOKIE_DOMAIN = 'bizzybdid'
+
+
+SITE_ID = 1
+
+ROOT_URLCONF = 'subdomain.urls'
+
+# # A dictionary of urlconf module paths, keyed by their subdomain.
+SUBDOMAIN_URLCONFS = {
+
+    None: 'bizzybd.urls',  # no subdomain, e.g. ``example.com``
+    'www': 'myproject.urls.frontend',
+    'api': 'myproject.urls.api',
+    '.': 'subdomain.urls',
+
+}
