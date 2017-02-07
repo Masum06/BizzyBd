@@ -19,6 +19,7 @@ urlpatterns = [
     # for django default authentication system
     url('', include('django.contrib.auth.urls', namespace='auth')),
     url(r'^accounts/login/$', login, name='login'),
+    url(r'^captcha/', include('captcha.urls')),
 
 ]
 

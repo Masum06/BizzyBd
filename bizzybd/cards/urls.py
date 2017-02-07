@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from cards.views import IndexView, ThemesView, CardCreateView, CardView, AllCardView
 
 
@@ -9,7 +9,7 @@ urlpatterns = [
         name='cards_create_card'),
     url(r'^all-cards/$', AllCardView.as_view(), name='cards_all_cards'),
     url(r'^(?P<card_url>[\w\-]+)/$', CardView.as_view(), name='cards_card'),
-
+    url(r'^captcha/', include('captcha.urls')),
 
 
 ]
