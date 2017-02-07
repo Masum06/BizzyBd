@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.views import View
 from django.shortcuts import get_object_or_404
-from cards.models import Themes
+from cards.models import Themes, Cards
 from cards.forms import CardsForm
-# from common.models import Website
+from django.urls import reverse
 
 
 class IndexView(View):
@@ -59,13 +59,36 @@ class CardCreateView(View):
 
         if(form.is_valid()):
             form.save()
-            return HttpResponse("Form is valid")
+            url = form.cleaned_data.get('url')
+            return redirect(reverse('cards_card', args=[url]))
+
+            # return HttpResponse("Form is valid")
         else:
+
+            context = {
+                # 'theme': theme,
+                'form': form,
+                # 'themes': themes,
+            }
+            return render(request, self.template_name, context)
             return HttpResponse("Invalid")
 
         context = {
             'theme': theme,
             'form': form,
             # 'themes': themes,
+        }
+        return render(request, self.template_name, context)
+
+
+class CardView(View):
+    template_name = 'cards/card.html'
+
+    def get(self, request, *args, **kwargs):
+
+        card_url = self.kwargs.get('card_url')
+        card = get_object_or_404(Cards, url=card_url)
+        context = {
+            'card': card,
         }
         return render(request, self.template_name, context)

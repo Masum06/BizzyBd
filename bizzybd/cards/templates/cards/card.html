@@ -1,0 +1,17 @@
+
+
+<h1> Card View Page </h1>
+
+{% if card.status == 'pending' %}
+
+<h1> Card is under pending </h1>
+
+{% elif card.status == 'rejected' %}
+
+<h1> Card is rejected </h1>
+
+{% else %}
+
+card will be showed here 
+
+{% endif %}

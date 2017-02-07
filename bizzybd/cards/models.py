@@ -38,7 +38,7 @@ class Themes(models.Model):
 
 class Cards(Themes):
 
-    url = models.CharField(max_length=50)
+    url = models.CharField(max_length=50, unique=True)
     status = models.CharField(choices=STATUS_CHOICES,
                               max_length=20,
                               help_text='Select Status of the Card: ',
