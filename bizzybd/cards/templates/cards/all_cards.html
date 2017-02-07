@@ -1,0 +1,10 @@
+
+
+
+<h1> All cards will be displayed here </h1>
+
+{% for card in cards %}
+
+<p><a href="{% url 'cards_card' card.url %}" target="_blank"> {{card.url}} {{ card.status }} </a></p>
+
+{% endfor %}

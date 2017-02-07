@@ -81,6 +81,22 @@ class CardCreateView(View):
         return render(request, self.template_name, context)
 
 
+
+class AllCardView(View):
+    template_name = 'cards/all_cards.html'
+
+    def get(self, request, *args, **kwargs):
+
+        print("in all cards method")
+
+        # card_url = self.kwargs.get('card_url')
+        cards = Cards.objects.all()
+        context = {
+            'cards': cards,
+        }
+        return render(request, self.template_name, context)
+
+
 class CardView(View):
     template_name = 'cards/card.html'
 
