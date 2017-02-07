@@ -26,7 +26,7 @@ class ThemesView(View):
 
     def get(self, request, *args, **kwargs):
 
-        themes = Themes.objects.all()
+        themes = Themes.objects.filter(is_theme=True)
         context = {
             'themes': themes,
         }

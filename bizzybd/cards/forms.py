@@ -8,7 +8,7 @@ class CardsForm(ModelForm):
 
     class Meta:
         model = Cards
-        exclude = ['status']
+        exclude = ['status', 'is_theme']
 
     # def clean(self):
     #     super(WebsiteForm, self).clean()

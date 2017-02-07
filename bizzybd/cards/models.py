@@ -32,6 +32,8 @@ class Themes(models.Model):
     image2 = models.ImageField(blank=True, null=True)
     image3 = models.ImageField(blank=True, null=True)
 
+    is_theme = models.BooleanField(default=False)
+
     def __str__(self):
         return self.name
 
