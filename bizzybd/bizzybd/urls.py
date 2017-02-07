@@ -2,6 +2,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from common.views import login
+from django.conf import settings
 
 
 urlpatterns = [
@@ -17,4 +18,12 @@ urlpatterns = [
     # for django default authentication system
     url('', include('django.contrib.auth.urls', namespace='auth')),
     url(r'^accounts/login/$', login, name='login'),
+
 ]
+
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ]

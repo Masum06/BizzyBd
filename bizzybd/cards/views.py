@@ -8,24 +8,13 @@ from common.models import Website
 class IndexView(View):
 
     # template_name = 'home/index.html'
-    template_name = 'home/sub_domain.html'
+    template_name = 'cards/index.html'
 
     def get(self, request, *args, **kwargs):
 
-        print("subdomain index view")
-
-        website = get_object_or_404(Website, name=request.subdomain)
+        # website = get_object_or_404(Website, name=request.subdomain)
         context = {
-            'website': website,
-            'is_owner': is_owner(website, request),
+            # 'website': website,
+            # 'is_owner': is_owner(website, request),
         }
         return render(request, self.template_name, context)
-
-
-
-def is_owner(website, request):
-
-    if(website.owner == request.user):
-        return True
-    else:
-        return False

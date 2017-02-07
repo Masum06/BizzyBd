@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'subdomains',
     'common',
     'home',
+    'cards',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,6 +57,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     # 'django_hosts.middleware.HostsResponseMiddleware',
 )
 
@@ -148,6 +150,7 @@ SUBDOMAIN_URLCONFS = {
     None: 'bizzybd.urls',  # no subdomain, e.g. ``example.com``
     'www': 'myproject.urls.frontend',
     'api': 'myproject.urls.api',
+    'cards': 'cards.urls',
     '.': 'subdomain.urls',
 
 }
