@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.views import View
 from django.shortcuts import get_object_or_404
+from cards.models import Themes
 
-from common.models import Website
+# from common.models import Website
 
 
 class IndexView(View):
@@ -24,10 +25,23 @@ class ThemesView(View):
     template_name = 'cards/themes.html'
 
     def get(self, request, *args, **kwargs):
-        print("\n\n in themes views")
 
+        themes = Themes.objects.all()
+        context = {
+            'themes': themes,
+        }
+        return render(request, self.template_name, context)
+
+
+class CardCreateView(View):
+    template_name = 'cards/create_card.html'
+
+    def get(self, request, *args, **kwargs):
+        theme_id = self.kwargs.get('theme_id')
+        theme = get_object_or_404(Themes, id=theme_id)
 
         context = {
-
+            'theme': theme
+            # 'themes': themes,
         }
         return render(request, self.template_name, context)

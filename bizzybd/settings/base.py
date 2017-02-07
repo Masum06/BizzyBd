@@ -116,6 +116,9 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "server_static")
 
+# media files. Uploaded by user
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #  python social auth settings
 # https://console.developers.google.com/

@@ -1,3 +1,10 @@
 
 
 <h1 align="center">Cards theme page</h1>
+
+
+{% for theme in themes %}
+
+<a href="{% url 'cards_create_card' theme.id %}"><p> {{ theme }} </p></a>
+
+{% endfor %}
