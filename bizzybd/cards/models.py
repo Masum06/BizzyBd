@@ -7,6 +7,12 @@ from django.db import models
 # from gre_model_test.constants import DIFFICUTY_CHOICES, \
 #     GRE_MCQ_TYPE_CHOICES, SECTION_TYPE_CHOICES
 
+STATUS_CHOICES = (
+    ('accepted', 'Accepted'),
+    ('rejected', 'Rejected'),
+    ('pending', 'Pending'),
+)
+
 
 class Themes(models.Model):
 
@@ -28,3 +34,15 @@ class Themes(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Cards(Themes):
+
+    url = models.CharField(max_length=50)
+    status = models.CharField(choices=STATUS_CHOICES,
+                              max_length=20,
+                              help_text='Select Status of the Card: ',
+                              default='pending')
+
+    def __str__(self):
+        return self.url
