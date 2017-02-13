@@ -12,7 +12,7 @@ class IndexView(View):
 
     def get(self, request, *args, **kwargs):
 
-        print("subdomain index view")
+        print("..........subdomain index view")
 
         website = get_object_or_404(Website, name=request.subdomain)
         context = {

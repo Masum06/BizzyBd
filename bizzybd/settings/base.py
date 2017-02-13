@@ -151,8 +151,8 @@ ROOT_URLCONF = 'subdomain.urls'
 SUBDOMAIN_URLCONFS = {
 
     None: 'bizzybd.urls',  # no subdomain, e.g. ``example.com``
-    'www': 'myproject.urls.frontend',
-    'api': 'myproject.urls.api',
+    # 'www': 'myproject.urls.frontend',
+    # 'api': 'myproject.urls.api',
     'cards': 'cards.urls',
     '.': 'subdomain.urls',
 

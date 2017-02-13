@@ -3,6 +3,7 @@ defusedxml==0.4.1
 Django==1.10.5
 django-debug-toolbar==1.6
 django-hosts==2.0
+django-simple-captcha==0.5.3
 django-subdomains==2.1.0
 gunicorn==19.6.0
 oauthlib==2.0.1
