@@ -2,7 +2,11 @@
 
 <h1> Card View Page </h1>
 
-{% if card.status == 'pending' %}
+{% if card.status == 'accepted' or request.user.is_staff %}
+
+card will be showed here 
+
+{% elif card.status == 'pending' %}
 
 <h1> Card is under pending </h1>
 
@@ -10,8 +14,26 @@
 
 <h1> Card is rejected </h1>
 
-{% else %}
+{% endif %}
 
-card will be showed here 
+<br><br>
+{% if request.user.is_staff %}
+
+
+    {{ card.status }}
+	<form action="?action=1" method="post">
+	  {% csrf_token %}
+	  <input type="submit" value="Accept">
+
+	</form>
+
+	<form action="?action=0" method="post">
+	  {% csrf_token %}
+	  <input type="submit" value="Reject">
+	</form>
 
 {% endif %}
+
+
+ 
+

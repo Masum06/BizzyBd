@@ -3,7 +3,7 @@ from cards import views
 
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^$', views.IndexView.as_view(), name='cards_index'),
     url(r'^themes/$', views.ThemesView.as_view(), name='cards_themes'),
     url(r'^themes/(?P<theme_id>[0-9]+)/create-card/$', views.CardCreateView.as_view(),
         name='cards_create_card'),

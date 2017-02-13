@@ -6,6 +6,7 @@ from cards.forms import CardsForm
 from django.urls import reverse
 import json as simplejson
 
+
 class IndexView(View):
 
     # template_name = 'home/index.html'
@@ -108,6 +109,27 @@ class CardView(View):
             'card': card,
         }
         return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        # theme_id = self.kwargs.get('theme_id')
+        # theme = get_object_or_404(Themes, id=theme_id)
+
+        card_url = self.kwargs.get('card_url')
+        card = get_object_or_404(Cards, url=card_url)
+        action = request.GET.get('action')
+        print(action)
+        if(action == '1'):
+            card.status = 'accepted'
+        elif(action == '0'):
+            card.status = 'rejected'
+        card.save()
+
+        card = Cards.objects.filter(status='pending').first()
+        if(card):
+            return redirect(reverse('cards_card', args=[card.url]))
+        else:
+            return redirect(reverse('cards_index'))
+
 
 
 def return_json(data):
