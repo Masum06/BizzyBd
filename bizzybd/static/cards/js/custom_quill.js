@@ -10,7 +10,17 @@
 	Quill.register(FontAttributor, true);
 	Quill.register(SizeStyle, true);
 
-	var quill = new Quill('#editor-container', {
+
+	var quill2 = new Quill('#div1', {
+	  modules: {
+	    toolbar: '#toolbar-title-container'
+	  },
+	  placeholder: 'Compose an epic...',
+	  theme: 'snow'
+	});
+
+
+	var quill = new Quill('#div2', {
 	  modules: {
 	    toolbar: '#toolbar-container'
 	  },
@@ -19,7 +29,7 @@
 	});
 
 	 //change-->
-	 var quill3 = new Quill('#editor-container3', {
+	 var quill3 = new Quill('#div3', {
 	  modules: {
 	    toolbar: '#toolbar-container3'
 	  },
@@ -27,13 +37,7 @@
 	  theme: 'snow'
 	});
 
-	var quill2 = new Quill('#title-container', {
-	  modules: {
-	    toolbar: '#toolbar-title-container'
-	  },
-	  placeholder: 'Compose an epic...',
-	  theme: 'snow'
-	});
+
 
 //this is for formatting pasted codes 
 //https://github.com/quilljs/quill/issues/109
