@@ -83,6 +83,8 @@ div#editor-container {
 	border-bottom-right-radius: 10px;
 }
 
+div#editor-container:active
+
 div#toolbar-container {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -138,4 +140,12 @@ div#toolbar-container {
   color: black;
   font-family: 'Montez', cursive;
   font-size: 4em;
+}
+
+.ql-container{
+	border: none;
+}
+
+.ql-container:focus {
+	border: 1px solid grey;
 }
