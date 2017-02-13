@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'social.apps.django_app.default',
     'django.contrib.sites',
-    'captcha',  # apt-get -y install libz-dev libjpeg-dev libfreetype6-dev python-dev
+    # 'captcha',  # apt-get -y install libz-dev libjpeg-dev libfreetype6-dev python-dev
     # 'django_hosts',
     'subdomains',
     'common',

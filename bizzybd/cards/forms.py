@@ -1,12 +1,12 @@
 from django import forms
 from django.forms import ModelForm
 from cards.models import Themes, Cards
-from captcha.fields import CaptchaField
+# from captcha.fields import CaptchaField
 
 
 class CardsForm(ModelForm):
     # name = forms.CharField(max_length=20, required=False)
-    captcha = CaptchaField()
+    # captcha = CaptchaField()
 
     class Meta:
         model = Cards
