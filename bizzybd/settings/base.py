@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'common',
     'home',
     'cards',
+    'ajax_request',
 )
 
 MIDDLEWARE_CLASSES = (

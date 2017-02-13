@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from cards.models import Themes, Cards
 from cards.forms import CardsForm
 from django.urls import reverse
-
+import json as simplejson
 
 class IndexView(View):
 
@@ -50,11 +50,11 @@ class CardCreateView(View):
         }
         return render(request, self.template_name, context)
 
-
     def post(self, request, *args, **kwargs):
         # theme_id = self.kwargs.get('theme_id')
         # theme = get_object_or_404(Themes, id=theme_id)
 
+        print("\n\n.....form submit post method")
         form = self.form(request.POST)
 
         if(form.is_valid()):
@@ -70,8 +70,9 @@ class CardCreateView(View):
                 'form': form,
                 # 'themes': themes,
             }
-            return render(request, self.template_name, context)
+            print(form.errors)
             return HttpResponse("Invalid")
+            return render(request, self.template_name, context)
 
         context = {
             'theme': theme,
@@ -79,7 +80,6 @@ class CardCreateView(View):
             # 'themes': themes,
         }
         return render(request, self.template_name, context)
-
 
 
 class AllCardView(View):
@@ -108,3 +108,28 @@ class CardView(View):
             'card': card,
         }
         return render(request, self.template_name, context)
+
+
+def return_json(data):
+    if(data):
+        status = "Not Available"
+    else:
+        status = "Available"
+    status = {'status': status}
+    json = simplejson.dumps(status)
+    return HttpResponse(json, content_type='application/javascript')
+
+
+class UrlCheckView(View):
+
+    def get(self, request, *args, **kwargs):
+        url = request.GET.get('url')
+        # json = {'data': ''}
+        data = ""
+        if(url):
+            data = Cards.objects.filter(url=url)
+
+        return return_json(data)
+
+    def post(self, request, *args, **kwargs):
+        pass

@@ -20,6 +20,7 @@ urlpatterns = [
     url('', include('django.contrib.auth.urls', namespace='auth')),
     url(r'^accounts/login/$', login, name='login'),
     # url(r'^captcha/', include('captcha.urls')),
+    # url(r'^ajax_select/', include(ajax_select_urls)),
 
 ]
 
