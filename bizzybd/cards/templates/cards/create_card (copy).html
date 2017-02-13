@@ -1,0 +1,22 @@
+
+
+
+<h1> Create card page </h1>
+
+
+{{ theme }}
+
+<br><br>
+
+
+
+<form action="" method="post">
+
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <br><br>
+  <input type="submit">
+
+  <button class='js-captcha-refresh'></button>
+</form>

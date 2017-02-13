@@ -17,6 +17,7 @@ STATUS_CHOICES = (
 class Themes(models.Model):
 
     name = models.CharField(max_length=50)
+    theme_image = models.ImageField(blank=True, null=True)
     div1 = models.CharField(max_length=300, blank=True, null=True)
     div2 = models.CharField(max_length=300, blank=True, null=True)
     div3 = models.CharField(max_length=300, blank=True, null=True)

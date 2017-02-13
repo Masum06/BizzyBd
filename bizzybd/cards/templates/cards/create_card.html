@@ -1,22 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js demo-1">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Bizzybd Cards</title>
+		<meta name="description" content="Bookblock: A Content Flip Plugin - Demo 1" />
+		<meta name="keywords" content="javascript, jquery, plugin, css3, flip, page, 3d, booklet, book, perspective" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link href="https://cdn.quilljs.com/1.2.0/quill.snow.css" rel="stylesheet">
+		<script src="https://cdn.quilljs.com/1.2.0/quill.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Bilbo+Swash+Caps|Italianno|Montez|Nothing+You+Could+Do|Reenie+Beanie|Sacramento|Tangerine" rel="stylesheet">
+
+
+	
+  	{% load staticfiles %}
+
+		<link rel="stylesheet" type="text/css" href="{% static 'cards/css/default.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'cards/css/bookblock.css' %}" />
+		<!-- custom demo style -->
+		<link rel="stylesheet" type="text/css" href="{% static 'cards/css/demo1.css' %}" />
+		<script src="{% static 'cards/js/modernizr.custom.js' %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'cards/mycss.css' %}">
+
+	
+	</head>
+	<body>
+		<div class="container">
+
+			<div class="main clearfix">
+				<div class="bb-custom-wrapper">
+					
+					<div id="bb-bookblock" class="bb-bookblock">
+						<div class="bb-item first">
+							<div class="shadowR"></div>
+							<img src="{% static 'cards/images/demo1/0.jpg' %}" alt="image01"/>
+
+							<div class="child right">
+
+							{% include 'cards/quill/toolbar_title.html' %}
 
 
 
-<h1> Create card page </h1>
+							<div id="title-container">
+							  HAPPY VALENTINE!
+							</div>
+
+							</div>
+						</div>
+						<div class="bb-item">
+							<div class="shadow"></div>
+							<img src="{% static 'cards/images/demo1/1.jpg' %}" alt="image01"/>
 
 
-{{ theme }}
+							<div class="child right">
+							<div id="toolbar-container">
+							{% include 'cards/quill/toolbar_body.html' %}		
+							</div>
 
-<br><br>
+							<div id="editor-container">
+							  <p>Quill uses classes for most inline styles.</p>
+							  <p><br></p>
+							  <p>The exception is <span class="ql-bg-yellow">background</span> and <span class="ql-color-purple">color</span>,</p>
+							  <p>where it uses inline styles.</p>
+							  <p><br></p>
+							  <p>This <span style="font-size: 18px">demo</span> shows how to <span style="font-size: 32px">change</span> this.</p>
+							  This demo shows how to change this.
+						Retrieves the string contents of the editor. <br>
+						Non-string content are omitted, so the returned
+						﻿
+							</div>
+							</div>
 
 
 
-<form action="" method="post">
+							<div class="child left">
+							<div id="toolbar-container3"> <!--change-->
+							{% include 'cards/quill/toolbar_body.html' %}		
+							</div>
 
-  {% csrf_token %}
-  {{ form.as_p }}
+							<div id="editor-container3"> <!--change-->
+							  <p>Quill uses classes for most inline styles.</p>
+							  <p><br></p>
+							  <p>The exception is <span class="ql-bg-yellow">background</span> and <span class="ql-color-purple">color</span>,</p>
+							  <p>where it uses inline styles.</p>
+							  <p><br></p>
+							  <p>This <span style="font-size: 18px">demo</span> shows how to <span style="font-size: 32px">change</span> this.</p>
+							  This demo shows how to change this.
+						Retrieves the string contents of the editor. <br>
+						Non-string content are omitted, so the returned
+						﻿
+							</div>
+							</div>
 
-  <br><br>
-  <input type="submit">
+						</div>
 
-  <button class='js-captcha-refresh'></button>
-</form>
+						<div class="bb-item last">
+							<div class="shadowL"></div>
+							<img src="{% static 'cards/images/demo1/7.jpg' %}" alt="image05"/>
+						</div>
+					</div>
+
+					<nav>
+						<a id="bb-nav-prev" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
+						<a id="bb-nav-next" href="#" class="bb-custom-icon bb-custom-icon-arrow-right">Next</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<!-- /container -->
+
+
+
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="{% static 'cards/js/jquerypp.custom.js' %}"></script>
+		<script src="{% static 'cards/js/jquery.bookblock.js' %}"></script>
+
+
+		<script>
+			var Page = (function() {
+				
+				var config = {
+						$bookBlock : $( '#bb-bookblock' ),
+						$navNext : $( '#bb-nav-next' ),
+						$navPrev : $( '#bb-nav-prev' ),
+						$navFirst : $( '#bb-nav-first' ),
+						$navLast : $( '#bb-nav-last' )
+					},
+					init = function() {
+						config.$bookBlock.bookblock( {
+							speed : 800,
+							shadowSides : 0.8,
+							shadowFlip : 0.7
+						} );
+						initEvents();
+					},
+					initEvents = function() {
+						
+						var $slides = config.$bookBlock.children();
+
+						// add navigation events
+						config.$navNext.on( 'click touchstart', function() {
+							config.$bookBlock.bookblock( 'next' );
+							return false;
+						} );
+
+						config.$navPrev.on( 'click touchstart', function() {
+							config.$bookBlock.bookblock( 'prev' );
+							return false;
+						} );
+
+						config.$navFirst.on( 'click touchstart', function() {
+							config.$bookBlock.bookblock( 'first' );
+							return false;
+						} );
+
+						config.$navLast.on( 'click touchstart', function() {
+							config.$bookBlock.bookblock( 'last' );
+							return false;
+						} );
+						
+						// add swipe events
+						$slides.on( {
+							'swipeleft' : function( event ) {
+								config.$bookBlock.bookblock( 'next' );
+								return false;
+							},
+							'swiperight' : function( event ) {
+								config.$bookBlock.bookblock( 'prev' );
+								return false;
+							}
+						} );
+
+						// add keyboard events
+						$( document ).keydown( function(e) {
+							var keyCode = e.keyCode || e.which,
+								arrow = {
+									left : 37,
+									up : 38,
+									right : 39,
+									down : 40
+								};
+
+							switch (keyCode) {
+								case arrow.left:
+									config.$bookBlock.bookblock( 'prev' );
+									break;
+								case arrow.right:
+									config.$bookBlock.bookblock( 'next' );
+									break;
+							}
+						} );
+					};
+
+					return { init : init };
+
+			})();
+		</script>
+		<script>
+				Page.init();
+		</script>
+
+		<script type="text/javascript">
+			var SizeStyle = Quill.import('attributors/style/size');
+			/*Fonts*/
+			var FontAttributor = Quill.import('attributors/class/font');
+			FontAttributor.whitelist = [
+			  'sofia', 'slabo', 'inconsolata', 'ubuntu', 'georgia', 'Tangerine', 'Sacramento', 'Nothing', 'Reenie', 'Annie',  'Montez', 'Bilbo'
+			];
+			/*/Fonts*/
+			Quill.register(FontAttributor, true);
+			Quill.register(SizeStyle, true);
+
+			var quill = new Quill('#editor-container', {
+			  modules: {
+			    toolbar: '#toolbar-container'
+			  },
+			  placeholder: 'Compose an epic...',
+			  theme: 'snow'
+			});
+
+			 //change-->
+			 var quill3 = new Quill('#editor-container3', {
+			  modules: {
+			    toolbar: '#toolbar-container3'
+			  },
+			  placeholder: 'Compose an epic...',
+			  theme: 'snow'
+			});
+
+			var quill2 = new Quill('#title-container', {
+			  modules: {
+			    toolbar: '#toolbar-title-container'
+			  },
+			  placeholder: 'Compose an epic...',
+			  theme: 'snow'
+			});
+
+		//this is for formatting pasted codes 
+		//https://github.com/quilljs/quill/issues/109
+		/**/	
+		quill.clipboard.addMatcher(Node.TEXT_NODE, function(node, delta) {
+		  var regex = /https?:\/\/[^\s]+/g;
+		  var regexw = /www.[^\s]+/g;
+		  if (regex.exec(node.data) != null || regexw.exec(node.data) != null) {
+		    delta.ops = [{ insert: node.data, attributes: { link: node.data }}];
+		  }
+		  return delta;
+		});
+	</script>
+
+
+
+	</body>
+</html>
