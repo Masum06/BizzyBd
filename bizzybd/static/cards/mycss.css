@@ -138,14 +138,11 @@ div#toolbar-container {
   height: 50%;
   width: 100%;
   color: black;
+  
   font-family: 'Montez', cursive;
   font-size: 4em;
 }
 
-.ql-container{
-	border: none;
-}
-
-.ql-container:focus {
-	border: 1px solid grey;
+#title-container .ql-editor{
+	text-align: center;
 }
