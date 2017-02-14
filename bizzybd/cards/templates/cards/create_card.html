@@ -1,32 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js demo-1">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>Bizzybd Cards</title>
-		<meta name="description" content="Bookblock: A Content Flip Plugin - Demo 1" />
-		<meta name="keywords" content="javascript, jquery, plugin, css3, flip, page, 3d, booklet, book, perspective" />
-		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link href="https://cdn.quilljs.com/1.2.0/quill.snow.css" rel="stylesheet">
-		<script src="https://cdn.quilljs.com/1.2.0/quill.js"></script>
-		<link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Bilbo+Swash+Caps|Italianno|Montez|Nothing+You+Could+Do|Reenie+Beanie|Sacramento|Tangerine" rel="stylesheet">
+{% extends 'home/b.html' %}
 
+{% load staticfiles %}
 
-	
-  	{% load staticfiles %}
-
-		<link rel="stylesheet" type="text/css" href="{% static 'cards/css/default.css' %}" />
-		<link rel="stylesheet" type="text/css" href="{% static 'cards/css/bookblock.css' %}" />
-		<!-- custom demo style -->
-		<link rel="stylesheet" type="text/css" href="{% static 'cards/css/demo1.css' %}" />
-		<script src="{% static 'cards/js/modernizr.custom.js' %}"></script>
-		<link rel="stylesheet" type="text/css" href="{% static 'cards/mycss.css' %}">
-
-	
-	</head>
-	<body>
+{% block display%}
 		<div class="container">
 
 			<div class="main clearfix">
@@ -38,7 +14,9 @@
 							<img src="{% static 'cards/images/demo1/0.jpg' %}" alt="image01"/>
 
 							<div class="child right">
+							<div id="toolbar1">
 							{% include 'cards/quill/toolbar_title.html' %}
+							</div>
 
 							<div id="div1">
 							  <br>Happy Valentine!
@@ -50,30 +28,8 @@
 							<div class="shadow"></div>
 							<img src="{% static 'cards/images/demo1/1.jpg' %}" alt="image01"/>
 
-
-							<div class="child right">
-							<div id="toolbar-container">
-							{% include 'cards/quill/toolbar_body.html' %}		
-							</div>
-
-							<div id="div2">
-							  <p>Quill uses classes for most inline styles.</p>
-							  <p><br></p>
-							  <p>The exception is <span class="ql-bg-yellow">background</span> and <span class="ql-color-purple">color</span>,</p>
-							  <p>where it uses inline styles.</p>
-							  <p><br></p>
-							  <p>This <span style="font-size: 18px">demo</span> shows how to <span style="font-size: 32px">change</span> this.</p>
-									This demo shows how to change this.
-									Retrieves the string contents of the editor. <br>
-									Non-string content are omitted, so the returned
-						﻿
-							</div>
-							</div>
-
-
-
 							<div class="child left">
-							<div id="toolbar-container3"> <!--change-->
+							<div id="toolbar3"> <!--change-->
 							{% include 'cards/quill/toolbar_body.html' %}		
 							</div>
 
@@ -89,7 +45,41 @@
 						Non-string content are omitted, so the returned
 						﻿
 							</div>
+						</div>
+
+						<div class="child right" id="dear">
+							<div id="toolbar4"> <!--change-->
+							{% include 'cards/quill/toolbar_body.html' %}		
 							</div>
+
+							<div id="div4"> <!--change-->
+							  Dear Martha,
+							</div>
+						</div>
+
+						<div class="child right bump-down">
+							<div id="toolbar2">
+							{% include 'cards/quill/toolbar_body.html' %}		
+							</div>
+
+							<div id="div2">
+							  <p>Quill uses classes for most inline styles.</p>
+							  <p><br></p>
+							  <p>The exception is <span class="ql-bg-yellow">background</span> and <span class="ql-color-purple">color</span>,</p>
+							  <p>where it uses inline styles.</p>
+							  <p><br></p>
+							  <p>This <span style="font-size: 18px">demo</span> shows how to <span style="font-size: 32px">change</span> this.</p>
+									This demo shows how to change this.
+									Retrieves the string contents of the editor. <br>
+									Non-string content are omitted, so the returned
+							</div>
+						</div>
+
+
+						
+
+
+						
 
 						</div>
 
@@ -107,17 +97,4 @@
 			</div>
 		</div>
 		<!-- /container -->
-
-
-
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="{% static 'cards/js/jquerypp.custom.js' %}"></script>
-		<script src="{% static 'cards/js/jquery.bookblock.js' %}"></script>
-		<script src="{% static 'cards/js/turn.js' %}"></script>
-		<script>
-				Page.init();
-		</script>
-
-		<script src="{% static 'cards/js/custom_quill.js' %}"></script>
-	</body>
-</html>
+{% endblock %}

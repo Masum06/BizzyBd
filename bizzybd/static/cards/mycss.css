@@ -67,8 +67,9 @@ img{
 
 
 /* QUILL CSS*/
-#total-container{
-	width: 36%;
+
+#toolbar1, #toolbar2, #toolbar3{
+	border-radius: 10px;
 }
 #div2 {
   height: 50%;
@@ -158,4 +159,8 @@ div#toolbar-container {
 
 .ql-container.ql-snow{
 	border: none;
+}
+
+.bump-down{
+	top: 100px;
 }
