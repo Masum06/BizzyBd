@@ -93,8 +93,31 @@
 						<a id="bb-nav-prev" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
 						<a id="bb-nav-next" href="#" class="bb-custom-icon bb-custom-icon-arrow-right">Next</a>
 					</nav>
+
+					<p>cards.bizzybd.com/<input type="text" id="url_name"></p>
+					<div id='url_status'></div>
+					<button id="publish">Publish Card</button>
 				</div>
 			</div>
 		</div>
 		<!-- /container -->
+
+<form action="" method="post" id="theme_form">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <br><br>
+  <!-- <input type="submit" value="Publish"> -->
+
+</form>
+
+
+
+{% endblock %}
+
+
+{% block myscript %}
+		<script src="{% static 'cards/js/custom_quill.js' %}"></script>
+		<script src="{% static 'cards/js/form_submit.js' %}"></script>	
+
 {% endblock %}
