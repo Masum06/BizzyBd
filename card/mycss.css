@@ -1,0 +1,147 @@
+/* BOOK CSS*/
+.bb-item{
+	position: relative;
+
+}
+
+img{
+	border-radius: 5px;
+	 pointer-events: none;
+}
+/*.first{
+	box-shadow: 100px 120px 30px -110px rgba(81,64,49,0.6);
+}*/
+
+.shadow{
+	box-shadow: 0 12px 20px -10px rgba(81,64,49,0.6);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	z-index: -10;
+}
+
+.shadowL{
+	box-shadow: 0 12px 20px -10px rgba(81,64,49,0.6);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 50%;
+	z-index: -10;
+}
+.shadowR{
+	box-shadow: 0 12px 20px -10px rgba(81,64,49,0.6);
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	height: 100%;
+	width: 50%;
+	z-index: -10;
+}
+
+.child{
+	position: absolute;
+	width: 360px;
+}
+.left{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.right{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+/* QUILL CSS*/
+#toolbar-container, #toolbar-title-container, #toolbar-container3{
+	border-radius: 10px;
+}
+#editor-container {
+  height: 50%;
+  width: 100%;
+  color: black;
+  font-family: 'Montez', cursive;
+  font-size: 1.3em;
+}
+#toolbar-container{
+	width: 100%;
+}
+
+span{
+	border-radius: 5px;
+}
+
+div#editor-container, div#title-container {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+div#toolbar-container, div#toolbar-title-container {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+/*Adding new font*/
+/*TAKE THAT FUCKER!! SELECTED FONT USING DATA VALUE*/
+
+[data-value="georgia"], .ql-font-georgia {
+	font-family: 'Georgia', sans-serif;
+	font-size: .75em;
+	text-align: center;
+}
+[data-value="Tangerine"], .ql-font-Tangerine {
+	font-family: 'Tangerine', cursive;
+	font-size: 1.4em;
+	text-align: center;
+}
+[data-value="Sacramento"], .ql-font-Sacramento {
+	font-family: 'Sacramento', cursive;
+	font-size: 1.3em;
+	text-align: center;
+}
+[data-value="Nothing"], .ql-font-Nothing {
+	font-family: 'Nothing You Could Do', cursive;
+	font-size: .8em;
+	text-align: center;
+}
+[data-value="Reenie"], .ql-font-Reenie {
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 1.1em;
+	text-align: center;
+}
+[data-value="Annie"], .ql-font-Annie {
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-size: 1em;
+	text-align: center;
+}
+[data-value="Montez"], .ql-font-Montez {
+	font-family: 'Montez', cursive;
+	font-size: 1.3em;
+	text-align: center;
+}
+[data-value="Bilbo"], .ql-font-Bilbo {
+	font-family: 'Bilbo Swash Caps', cursive;
+	font-size: 1.1em;
+	text-align: center;
+}
+
+#title-container{
+  height: 50%;
+  width: 100%;
+  color: black;
+  font-family: 'Montez', cursive;
+  font-size: 4em;
+}
