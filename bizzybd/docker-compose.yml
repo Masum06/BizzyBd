@@ -6,11 +6,14 @@ services:
         build: .
         ports:
             - 8000:8000
-        # command: python manage.py runserver 0.0.0.0:8000
+            - 8001:8001
+        # command: python manage.py runserver 0.0.0.0:8001
         # command: bash
+        command: ls
         volumes:
-            - .:/usr/src/app
-        # stdin_open: true
+            - .:/app
+        tty: true
+        stdin_open: true
 
 
 
