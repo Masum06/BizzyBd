@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^common/', include('common.urls')),
     url(r'^', include('home.urls', namespace='home')),
-    url(r'^', include('cards.urls', namespace='cards')),
+    url(r'^cards/', include('cards.urls', namespace='cards')),
     # for python social auth
     url('', include('social.apps.django_app.urls', namespace='social')),
     # for django default authentication system

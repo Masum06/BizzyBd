@@ -1,4 +1,4 @@
-FROM alalamin19/bizzybd
+FROM bizzyltd/bizzybd:v1
 WORKDIR /app
 COPY requirements.txt ./
 # RUN pip install -r requirements.txt
