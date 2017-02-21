@@ -9,6 +9,7 @@ gunicorn==19.6.0
 oauthlib==2.0.1
 olefile==0.44
 packaging==16.8
+pbr==1.10.0
 Pillow==4.0.0
 PyJWT==1.4.2
 pyparsing==2.1.10
@@ -19,3 +20,7 @@ requests-oauthlib==0.7.0
 six==1.10.0
 social-auth-core==1.0.1
 sqlparse==0.2.2
+stevedore==1.20.0
+virtualenv==15.1.0
+virtualenv-clone==0.2.6
+virtualenvwrapper==4.7.2

@@ -21,6 +21,7 @@ class IndexView(View):
 
     def get(self, request, *args, **kwargs):
 
+        print("IP Address for debug-toolbar: " + request.META['REMOTE_ADDR'])
         context = {
             'title': "Bizzybd",
         }
