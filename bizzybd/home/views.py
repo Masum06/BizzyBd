@@ -87,3 +87,14 @@ def is_owner(website, request):
         return True
     else:
         return False
+
+
+class EditorView(View):
+
+    template_name = 'common/editor.html'
+    # template_sub_domain = 'home/sub_domain.html'
+
+    def get(self, request, *args, **kwargs):
+
+        context = { }
+        return render(request, self.template_name, context)

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js demo-1">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Bizzybd Cards</title>
+		<meta name="description" content="Bookblock: A Content Flip Plugin - Demo 1" />
+		<meta name="keywords" content="javascript, jquery, plugin, css3, flip, page, 3d, booklet, book, perspective" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Bilbo+Swash+Caps|Italianno|Montez|Nothing+You+Could+Do|Reenie+Beanie|Sacramento|Tangerine" rel="stylesheet">
+		
+		<!--{% include 'cards/quill/toolbar_cdn.html' %}-->
+		<link href="https://cdn.quilljs.com/1.2.0/quill.snow.css" rel="stylesheet">
+		<script src="https://cdn.quilljs.com/1.2.0/quill.js"></script>
+
+
+	
+  	{% load staticfiles %}
+
+		<link rel="stylesheet" type="text/css" href="{% static 'cards/css/default.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'cards/css/bookblock.css' %}" />
+		<!-- custom demo style -->
+		<link rel="stylesheet" type="text/css" href="{% static 'cards/css/demo1.css' %}" />
+		<script src="{% static 'cards/js/modernizr.custom.js' %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'cards/css/mycss.css' %}">
+
+	
+	</head>
+	<body>
+
+		{% block display %}
+		{% endblock %}
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="{% static 'cards/js/jquerypp.custom.js' %}"></script>
+		<script src="{% static 'cards/js/jquery.bookblock.js' %}"></script>
+		<script src="{% static 'cards/js/turn.js' %}"></script>
+		<script>
+				Page.init();
+		</script>
+
+
+
+
+		{% block myscript %}
+		{% endblock %}
+
+
+
+
+	</body>
+</html>

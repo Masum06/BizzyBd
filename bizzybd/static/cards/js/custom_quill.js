@@ -13,7 +13,7 @@
 
 	var quill2 = new Quill('#div1', {
 	  modules: {
-	    toolbar: '#toolbar-title-container'
+	    toolbar: '#toolbar1'
 	  },
 	  placeholder: 'Compose an epic...',
 	  theme: 'snow'
@@ -22,16 +22,24 @@
 
 	var quill = new Quill('#div2', {
 	  modules: {
-	    toolbar: '#toolbar-container'
+	    toolbar: '#toolbar2'
 	  },
 	  placeholder: 'Compose an epic...',
 	  theme: 'snow'
 	});
 
 	 //change-->
-	 var quill3 = new Quill('#div3', {
+	var quill3 = new Quill('#div3', {
 	  modules: {
-	    toolbar: '#toolbar-container3'
+	    toolbar: '#toolbar3'
+	  },
+	  placeholder: 'Compose an epic...',
+	  theme: 'snow'
+	});
+
+	var quill4 = new Quill('#div4', {
+	  modules: {
+	    toolbar: '#toolbar4'
 	  },
 	  placeholder: 'Compose an epic...',
 	  theme: 'snow'
