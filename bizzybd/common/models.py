@@ -9,3 +9,11 @@ class Website(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Div(models.Model):
+
+    name = models.TextField()
+
+    def __str__(self):
+        return self.name

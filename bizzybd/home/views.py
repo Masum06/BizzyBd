@@ -7,11 +7,10 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
+from django.forms.models import formset_factory
 
-
-from common.models import Website
-from common.forms import WebsiteForm
-
+from common.models import Website, Div
+from common.forms import WebsiteForm, DivForm
 
 
 class IndexView(View):
@@ -69,6 +68,22 @@ class MysiteView(View):
         return HttpResponse("Website is created")
 
 
+class EditorView(View):
+
+    template_name = 'common/editor.html'
+    DivFormSet = formset_factory(form=DivForm, extra=0)
+
+    def get(self, request, *args, **kwargs):
+        divs = Div.objects.all()
+        formset = self.DivFormSet(initial=divs)
+        context = {
+            'divs': divs,
+            'formset': formset,
+        }
+        print(formset)
+        return render(request, self.template_name, context)
+
+
 def get_subdomain_name(request):
     title = request.get_host()
     position = title.find(settings.DOMAIN_NAME)
@@ -87,14 +102,3 @@ def is_owner(website, request):
         return True
     else:
         return False
-
-
-class EditorView(View):
-
-    template_name = 'common/editor.html'
-    # template_sub_domain = 'home/sub_domain.html'
-
-    def get(self, request, *args, **kwargs):
-
-        context = { }
-        return render(request, self.template_name, context)

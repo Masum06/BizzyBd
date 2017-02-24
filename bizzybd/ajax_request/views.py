@@ -7,16 +7,7 @@ from django.http import HttpResponse
 # from django.shortcuts import redirect
 import json as simplejson
 from cards.models import Cards
-
-
-def return_json(data):
-    if(data):
-        status = "Not Available"
-    else:
-        status = "Available"
-    status = {'status': status}
-    json = simplejson.dumps(status)
-    return HttpResponse(json, content_type='application/javascript')
+from common.models import Div
 
 
 class UrlCheckView(View):
@@ -32,3 +23,39 @@ class UrlCheckView(View):
 
     def post(self, request, *args, **kwargs):
         pass
+
+
+class UpdateDiv(View):
+
+    def get(self, request, *args, **kwargs):
+        # print("\n\n In get method")
+        div_id = request.GET.get('div_id')
+        text = request.GET.get('text')
+        if(div_id):
+            div = Div.objects.get(id=div_id)
+            div.name = text
+            div.save()
+        status = {'status': True}
+        json = simplejson.dumps(status)
+        return HttpResponse(json, content_type='application/javascript')
+
+    def post(self, request, *args, **kwargs):
+        div_id = request.POST.get('div_id')
+        text = request.POST.get('text')
+        if(div_id):
+            div = Div.objects.get(div_id)
+            div.name = text
+            div.save()
+        status = {'status': True}
+        json = simplejson.dumps(status)
+        return HttpResponse(json, content_type='application/javascript')
+
+
+def return_json(data):
+    if(data):
+        status = "Not Available"
+    else:
+        status = "Available"
+    status = {'status': status}
+    json = simplejson.dumps(status)
+    return HttpResponse(json, content_type='application/javascript')

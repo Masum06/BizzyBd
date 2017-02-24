@@ -12,6 +12,7 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^common/', include('common.urls')),
+    url(r'^ajax_request/', include('ajax_request.urls')),
     url(r'^', include('home.urls', namespace='home')),
     url(r'^cards/', include('cards.urls', namespace='cards')),
     # for python social auth
