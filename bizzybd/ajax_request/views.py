@@ -8,6 +8,7 @@ from django.http import HttpResponse
 import json as simplejson
 from cards.models import Cards
 from common.models import Div
+from common.forms import DivForm
 
 
 class UrlCheckView(View):
@@ -40,12 +41,22 @@ class UpdateDiv(View):
         return HttpResponse(json, content_type='application/javascript')
 
     def post(self, request, *args, **kwargs):
+
+        print("ajax request post")
+
         div_id = request.POST.get('div_id')
         text = request.POST.get('text')
+        form = DivForm(request.POST)
         if(div_id):
-            div = Div.objects.get(div_id)
+            div = Div.objects.get(id=div_id)
             div.name = text
             div.save()
+        else:
+            print("\n\n ajax request with wrong div_id")
+            print(div_id)
+            print(text)
+            print(form)
+
         status = {'status': True}
         json = simplejson.dumps(status)
         return HttpResponse(json, content_type='application/javascript')

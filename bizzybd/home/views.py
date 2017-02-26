@@ -46,6 +46,7 @@ class MysiteView(View):
 
     @method_decorator(login_required(login_url=reverse_lazy('home:index')))
     def post(self, request, *args, **kwargs):
+
         form = self.form(request.POST)
 
         if(form.is_valid()):
@@ -74,21 +75,23 @@ class EditorView(View):
     DivFormSet = formset_factory(form=DivForm, extra=0)
 
     def get(self, request, *args, **kwargs):
-        divs = Div.objects.all()
+        divs = Div.objects.all().values()
         formset = self.DivFormSet(initial=divs)
+        form = DivForm(initial={'name': "alamin"})
         context = {
             'divs': divs,
             'formset': formset,
+            'form': form,
         }
-        print(formset)
+        # print(formset)
         return render(request, self.template_name, context)
 
 
 def get_subdomain_name(request):
     title = request.get_host()
     position = title.find(settings.DOMAIN_NAME)
-    print(title)
-    print(position)
+    # print(title)
+    # print(position)
     if (position != -1):
         title = title[:position]
         return title

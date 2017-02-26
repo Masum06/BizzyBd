@@ -32,7 +32,7 @@
 <body>
 
 
-    {% for div in divs %}
+<!--     {% for div in divs %}
 		  <br><br><br>
 		  <form action="" method="post">
   		{% csrf_token %}
@@ -41,52 +41,68 @@
 				</textarea>
 			</form>
 		  <br><br><br>
+	{% endfor %} -->
+
+
+    {% for f in formset %}
+		  <br><br><br>
+		  <form action="/ajax_request/div/" method="post" id='form_id_{{f.id.value}}' name="form">
+  		{% csrf_token %}
+				<textarea id="{{ f.id.value }}" contenteditable="true">
+						{{ f.name.value }}
+				</textarea>
+<!-- 				{{ f.name }} -->
+			</form>
+		  <br><br><br>
 		{% endfor %}
 
 
 
 
-
-
-
-<!-- 	<textarea id="editor2" contenteditable="true">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</textarea>
-    <br><br><br> -->
+   <script src="http://malsup.github.com/jquery.form.js"></script> 
+	<script src="{% static 'ajax_requests/django_ajax_setup.js' %}"></script>
 	<script type="text/javascript">
-		// var editor1 = CKEDITOR.inline('editor1');
-		// var editor2 = CKEDITOR.inline('editor2');
 
     {% for div in divs %}
     		var editor{{div.id}} = CKEDITOR.inline('{{ div.id }}');
-
 				editor{{div.id}}.on( 'change', function( evt ) {
-
-				    console.log( 'Total bytes: ' + evt.editor.getData() );
-
+				// // console.log( 'Total bytes: ' + evt.editor.getData() );
         var ajax_url =  "/ajax_request/div/";
-			  $.get({
-			          "type"     : "GET",
+        console.log("\n serialize value");
+        console.log($("#form_id_{{div.id}}"));
+        var a = $("#form_id_{{div.id}}").serialize();
+        console.log(a);
+        console.log("serialize printing over\n");
+			  $.ajax({
+			          "type"     : "POST",
 			          "data"	 : {'div_id': {{div.id}}, 'text': evt.editor.getData()},
+			          // "data"   : $("#form_id_{{div.id}}").serialize(),
 			          "url"      : ajax_url,
 			          "dataType" : "json",
 			          "cache"    : false,
 			          "success"  : function(json) {
-
 			          	  console.log("\n\n ajax successful");
 			          	  console.log(json);
-
-
 			          }           
 			  });
-				});
-		{% endfor %}
 
+
+
+
+
+
+
+
+
+
+
+			 // $("#form_id_{{div.id}}").ajaxForm({url: '/ajax_request/div/', type: 'post'});
+			 // console.log("form has been submitted");
+
+
+				});
+
+		{% endfor %}
 	</script>
 
 </body>

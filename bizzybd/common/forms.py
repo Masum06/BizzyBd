@@ -19,15 +19,15 @@ class WebsiteForm(Form):
 
 
 class DivForm(Form):
-    name = forms.Textarea()
+    id = forms.IntegerField(widget=forms.HiddenInput())
+    name = forms.CharField()
 
-    # def clean(self):
-    #     super(WebsiteForm, self).clean()
-    #     website = self.cleaned_data.get('name')
-    #     if(Website.objects.filter(name=website)):
-    #         raise forms.ValidationError(
-    #             "This name has already been taken choose another name")
+    # def __init__(self, *args, **kwargs):
+    #     super(DivForm, self).__init__(*args, **kwargs)
 
-    # def save(self, user):
-    #     name = self.cleaned_data.get('name')
-    #     Website.objects.create(name=name, owner=user)
+    #     if self.initial:
+    #         div = self.initial
+    #         print("\n\n going to print div")
+    #         print(div)
+            # self.fields['name'].initial = 'This is default text.'
+            # self.name = "alamindiv"
