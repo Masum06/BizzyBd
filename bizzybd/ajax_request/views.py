@@ -10,6 +10,9 @@ from cards.models import Cards
 from common.models import Div
 from common.forms import DivForm
 
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
 
 class UrlCheckView(View):
 
@@ -56,6 +59,44 @@ class UpdateDiv(View):
             print(div_id)
             print(text)
             print(form)
+
+        status = {'status': True}
+        json = simplejson.dumps(status)
+        return HttpResponse(json, content_type='application/javascript')
+
+
+class SlimAync(View):
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(SlimAync, self).dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        print("\n\n In get method")
+
+        status = {'status': True}
+        json = simplejson.dumps(status)
+        return HttpResponse(json, content_type='application/javascript')
+
+    def post(self, request, *args, **kwargs):
+
+        print("ajax request post")
+        # print(request.POST)
+        file = request.POST.get('slim[]')
+
+
+        myfile = request.FILES.get('slim_output_4')
+        div = Div.objects.filter(name="ImageTest").first()
+        div.image = myfile
+        div.save()
+        print("\n\n")
+        print(request.FILES)
+        print(file)
+        print(type(file))
+        # myfile = file['file']
+        print(myfile)
+        
+        print(type(myfile))
 
         status = {'status': True}
         json = simplejson.dumps(status)
