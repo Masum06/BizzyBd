@@ -15,6 +15,7 @@ class Div(models.Model):
 
     name = models.TextField()
     image = models.ImageField(upload_to="slim/", blank=True, null=True)
+    file = models.FileField(upload_to='filepicker/', blank=True, null=True)
 
     def __str__(self):
         return self.name

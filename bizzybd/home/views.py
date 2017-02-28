@@ -100,6 +100,18 @@ class SlimView(View):
         return render(request, self.template_name, context)
 
 
+class FilepickerView(View):
+
+    template_name = 'common/filepicker.html'
+
+    def get(self, request, *args, **kwargs):
+        div = Div.objects.filter(name="ImageTest").first()
+        context = {
+            'div': div,
+        }
+        # print(formset)
+        return render(request, self.template_name, context)
+
 
 def get_subdomain_name(request):
     title = request.get_host()

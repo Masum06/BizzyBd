@@ -82,21 +82,28 @@ class SlimAync(View):
 
         print("ajax request post")
         # print(request.POST)
-        file = request.POST.get('slim[]')
-
-
-        myfile = request.FILES.get('slim_output_4')
-        div = Div.objects.filter(name="ImageTest").first()
-        div.image = myfile
-        div.save()
-        print("\n\n")
+        print("\nFILES ARE BELOW")
         print(request.FILES)
-        print(file)
-        print(type(file))
-        # myfile = file['file']
-        print(myfile)
-        
-        print(type(myfile))
+        file = request.POST.get('slim[]')
+        myfile = request.FILES.get('slim_output_4')
+        if (not file or not myfile):
+            # file = request.POST.get('file');
+            # myfile = request.FILES.get('file')
+            files = request.FILES
+            # print(type(files))
+
+            for f in files:
+                # print(type(f))
+                # print(f)
+                # print(type(files[f]))
+                Div.objects.create(name='FileUploadTesting', file=files[f])
+
+                print("File upload complete")
+
+        else:
+            div = Div.objects.filter(name="ImageTest").first()
+            div.image = myfile
+            div.save()
 
         status = {'status': True}
         json = simplejson.dumps(status)
