@@ -26,13 +26,18 @@
 
 <main>
 
+
+    {% csrf_token %}
+
+    {{ csrf_token }}
+
     <h1>Examples</h1>
 
     <h2>Async</h2>
 
     <h3>Upload new image</h3>
 
-    <div class="slim" data-service="/ajax_request/slim/async/">
+    <div class="slim" data-service="/ajax_request/slim/async/" data-will-request="ajaxSetup">
         <input type="file"/>
     </div>
 
@@ -118,11 +123,22 @@
     </form>
 
 </main>
-slim.jquery.min.js
+
+<script type="text/javascript">
+    
+    function ajaxSetup(xhr){
+        xhr.setRequestHeader('X-CSRFToken', "{{csrf_token}}");
+        console.log("Ajax has been set up");
+    }
+</script>
+
+
+
+<!-- slim.jquery.min.js -->
 <script src="{% static 'common/slim/js/slim.kickstart.min.js' %}"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-for making ajax request to server and set up csrf token with dajngo
-<script src="{% static 'ajax_requests/django_ajax_setup.js' %}"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- for making ajax request to server and set up csrf token with dajngo -->
+<script src="{% static 'ajax_requests/django_ajax_setup.js' %}"></script>
 
 </body>
 </html>

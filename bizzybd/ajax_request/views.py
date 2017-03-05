@@ -67,9 +67,9 @@ class UpdateDiv(View):
 
 class SlimAync(View):
 
-    @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args, **kwargs):
-        return super(SlimAync, self).dispatch(request, *args, **kwargs)
+    # @method_decorator(csrf_exempt)
+    # def dispatch(self, request, *args, **kwargs):
+    #     return super(SlimAync, self).dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
         print("\n\n In get method")
