@@ -1,0 +1,14 @@
+.slim{
+	border-radius: .75rem;
+	height: 20px;
+	width: 200px;
+}
+
+.slim .slim-btn-group {
+    opacity:0;
+    transition:.25s opacity;
+}
+
+.slim:hover .slim-btn-group {
+    opacity:1;
+}

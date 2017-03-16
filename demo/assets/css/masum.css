@@ -1,0 +1,22 @@
+#profile{
+	height: 200px;
+	width: 200px;
+	border-radius: 10px;
+}
+
+#home .content{
+	 height: 100%;
+	 width: 100%;
+	 /*margin: 2%;*/
+	 /*background-color: rgba(255,255,255,.65);*/
+	 background-color: rgba(0,0,0,.5);
+	 /*border-radius: 10px;*/
+}
+
+.resume{
+	min-height: 100vh;
+}
+
+.container-fluid div, .container-fluid h2{
+	padding: 10px;
+}
