@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from subdomain.views import IndexView
+from subdomain import views
 
 urlpatterns = [
     url(r'^', IndexView.as_view(), name='index'),

@@ -11,9 +11,7 @@ class IndexView(View):
     template_name = 'home/sub_domain.html'
 
     def get(self, request, *args, **kwargs):
-
-        print("..........subdomain index view")
-
+        print("\n\n..........subdomain index view")
         website = get_object_or_404(Website, name=request.subdomain)
         context = {
             'website': website,

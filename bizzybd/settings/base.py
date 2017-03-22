@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'common',
     'home',
     'cards',
+    'special_subdomain',
     'ajax_request',
 )
 
@@ -155,6 +156,7 @@ SUBDOMAIN_URLCONFS = {
     # 'www': 'myproject.urls.frontend',
     # 'api': 'myproject.urls.api',
     'cards': 'cards.urls',
+    'teacher': 'special_subdomain.urls',
     '.': 'subdomain.urls',
 
 }
