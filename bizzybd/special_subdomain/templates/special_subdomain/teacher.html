@@ -27,7 +27,7 @@
 <!-- image+text+file
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/slim/slim.min.css' %}">
-<link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/css/slim.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/css/slim.css' %}"> -->
 
  <!-- Materialize
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -75,13 +75,16 @@
 
 <header id="headerBar">
   <div class="col-left">
-    <figure>
-    <!-- <img id="profile" src="assets/images/azadsir.jpg" alt="profile"> -->
-    <div class="slim">
-      <input type="file"/>
-    </div>
-    </figure>
 
+
+    <div>   
+
+    <figure>
+      <div class="slim">
+        <input type="file"/>
+      </div>
+    </figure>
+    </div>
 
     <h3 class="color">Azad Salam</h3>
     <div>
@@ -135,6 +138,9 @@
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+      <div class="slim">
+        <input type="file"/>
       </div>
     </div>
        <a id="addabout" class="btn-floating btn-large waves-effect waves-light red">+</a>
@@ -271,8 +277,6 @@
 <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery.filterizr.js' %}"></script>
 <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/contact-form/js/validator.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/contact-form/js/form-scripts.js' %}"></script>
-
-
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDs3mrTgrYd6_hJS50x4Sha1lPtS2T-_JA"></script> 
 <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/function.js' %}"></script>
 
