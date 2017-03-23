@@ -16,3 +16,18 @@ class WebsiteForm(Form):
     def save(self, user):
         name = self.cleaned_data.get('name')
         Website.objects.create(name=name, owner=user)
+
+
+class DivForm(Form):
+    id = forms.IntegerField(widget=forms.HiddenInput())
+    name = forms.CharField()
+
+    # def __init__(self, *args, **kwargs):
+    #     super(DivForm, self).__init__(*args, **kwargs)
+
+    #     if self.initial:
+    #         div = self.initial
+    #         print("\n\n going to print div")
+    #         print(div)
+            # self.fields['name'].initial = 'This is default text.'
+            # self.name = "alamindiv"

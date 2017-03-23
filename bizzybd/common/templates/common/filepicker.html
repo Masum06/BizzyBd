@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FilePicker</title>
+	<style type="text/css">
+		#drop_zone{
+			color: rgb(255,255, 255);
+			border:2px solid rgb(255,0, 255);
+			background-color: rgb(180,0, 255);
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 10px;
+			height: 50px;
+			width: 300px;
+			margin: auto;
+			margin-top: 30px;
+		}
+		#drop_zone:hover{
+			background-color: rgb(150,0, 255);
+		}
+		input[type="file"] {
+		    display: none;
+		}
+		.myupload {
+		    height: 100%;
+		    width: 100%;
+		    display: inline-block;
+		    padding: 0;
+		    cursor: pointer;
+		}
+		.margin{
+			font-family: Georgia;
+			font-weight: 100;
+			margin-top: 15px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+
+<body>
+	<!-- https://www.html5rocks.com/en/tutorials/file/dndfiles/#disqus_thread -->
+	<div id="drop_zone" >
+		<label for="files" class="myupload"> <!-- http://jsfiddle.net/4cwpLvae/ -->
+			<h4 class="margin">Click or Drag</h4>
+		</label>
+		<input id="files" type="file" multiple />
+		<div class="over"></div>
+	</div>	
+	<output id="list"></output>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+var output = [];
+var allfiles = [];
+
+//Add files to the output array
+function iterate(evt, files){
+	for (var i = 0, f; f = files[i]; i++) {
+  		output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+  		f.size, ' bytes, last modified: ',
+  		f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+  		'</li>');
+
+
+
+  		allfiles.push(f);
+//  		console.log(f.value.length);
+
+
+    }
+    
+    
+         
+    var data = new FormData();
+    $.each(files, function(key, value)
+    {
+        data.append(key, value);
+    });
+    
+//    data = $("#files");
+//    console.log(data);
+    
+    sendAjax(data);
+
+   
+    
+	document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+	console.log(allfiles);
+}
+
+
+function sendAjax(data){
+
+
+     var ajax_url = "/ajax_request/slim/async/";    
+	  $.ajax({
+	          "type"     : "POST",
+//              "enctype"  : 'multipart/form-data',
+	          "data"	 : data,
+	          // "data"   : $("#form_id_{{div.id}}").serialize(),
+	          "url"      : ajax_url,
+	          "dataType" : "json",
+	          "cache"    : false,
+              "contentType": false,
+              "processData": false,
+              
+	          "success"  : function(json) {
+	          	  console.log("\n\n ajax successful");
+	          	  console.log(json);
+	          }           
+	  });  
+
+}
+
+
+
+
+function handleDragSelect(evt) {
+	evt.stopPropagation(); // Stops parent events to take place
+	evt.preventDefault(); //Stops the default action
+	var files = evt.dataTransfer.files; // All the dragged files //MOZILLA DN for details
+	iterate(evt, files);
+	// allfiles.push(files);
+	console.log(files);
+}
+
+function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+    evt.stopPropagation(); // Stops parent events to take place
+ 	evt.preventDefault(); //Stops the default action
+    iterate(evt, files);
+    // allfiles.push(files);
+	console.log(files);
+}
+
+function handleDragOver(evt) {
+	evt.stopPropagation();
+	evt.preventDefault();
+	evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+}
+
+// Setup the dnd listeners.
+var dropZone = document.getElementById('drop_zone');
+var filepick = document.getElementById('files');
+dropZone.addEventListener('dragover', handleDragOver, false);
+dropZone.addEventListener('drop', handleDragSelect, false);
+filepick.addEventListener('change', handleFileSelect, false);
+
+
+		
+</script>
+
+
+
+</body>
+</html>

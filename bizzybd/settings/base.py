@@ -45,12 +45,13 @@ INSTALLED_APPS = (
     'common',
     'home',
     'cards',
+    'special_subdomain',
     'ajax_request',
 )
 
 MIDDLEWARE_CLASSES = (
     'subdomains.middleware.SubdomainURLRoutingMiddleware',
-    # 'django_hosts.middleware.HostsRequestMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -59,7 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
+
     # 'django_hosts.middleware.HostsResponseMiddleware',
 )
 
@@ -155,6 +156,7 @@ SUBDOMAIN_URLCONFS = {
     # 'www': 'myproject.urls.frontend',
     # 'api': 'myproject.urls.api',
     'cards': 'cards.urls',
+    'teacher': 'special_subdomain.urls',
     '.': 'subdomain.urls',
 
 }

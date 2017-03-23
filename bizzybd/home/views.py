@@ -7,11 +7,10 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
+from django.forms.models import formset_factory
 
-
-from common.models import Website
-from common.forms import WebsiteForm
-
+from common.models import Website, Div
+from common.forms import WebsiteForm, DivForm
 
 
 class IndexView(View):
@@ -21,6 +20,7 @@ class IndexView(View):
 
     def get(self, request, *args, **kwargs):
 
+        print("IP Address for debug-toolbar: " + request.META['REMOTE_ADDR'])
         context = {
             'title': "Bizzybd",
         }
@@ -46,6 +46,7 @@ class MysiteView(View):
 
     @method_decorator(login_required(login_url=reverse_lazy('home:index')))
     def post(self, request, *args, **kwargs):
+
         form = self.form(request.POST)
 
         if(form.is_valid()):
@@ -68,11 +69,55 @@ class MysiteView(View):
         return HttpResponse("Website is created")
 
 
+class EditorView(View):
+
+    template_name = 'common/editor.html'
+    DivFormSet = formset_factory(form=DivForm, extra=0)
+
+    def get(self, request, *args, **kwargs):
+        divs = Div.objects.all().values()
+        formset = self.DivFormSet(initial=divs)
+        form = DivForm(initial={'name': "alamin"})
+        context = {
+            'divs': divs,
+            'formset': formset,
+            'form': form,
+        }
+        # print(formset)
+        return render(request, self.template_name, context)
+
+
+class SlimView(View):
+
+    template_name = 'common/slim.html'
+
+    def get(self, request, *args, **kwargs):
+        div = Div.objects.filter(name="ImageTest").first()
+        context = {
+            'div': div,
+        }
+        # print(formset)
+        return render(request, self.template_name, context)
+
+
+class FilepickerView(View):
+
+    template_name = 'common/filepicker.html'
+
+    def get(self, request, *args, **kwargs):
+        div = Div.objects.filter(name="ImageTest").first()
+        context = {
+            'div': div,
+        }
+        # print(formset)
+        return render(request, self.template_name, context)
+
+
 def get_subdomain_name(request):
     title = request.get_host()
     position = title.find(settings.DOMAIN_NAME)
-    print(title)
-    print(position)
+    # print(title)
+    # print(position)
     if (position != -1):
         title = title[:position]
         return title
@@ -86,14 +131,3 @@ def is_owner(website, request):
         return True
     else:
         return False
-
-
-class EditorView(View):
-
-    template_name = 'common/editor.html'
-    # template_sub_domain = 'home/sub_domain.html'
-
-    def get(self, request, *args, **kwargs):
-
-        context = { }
-        return render(request, self.template_name, context)
