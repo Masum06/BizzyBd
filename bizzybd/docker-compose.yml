@@ -16,23 +16,23 @@ services:
         tty: true
         stdin_open: true
 
-        depends_on:
-          - postgres
+    #     depends_on:
+    #       - postgres
 
-    postgres:
-      restart: always
-      image: postgres
-      # ports:
-      #   - "5433:5432"
-      environment:
-        # - DEBUG=false
+    # postgres:
+    #   restart: always
+    #   image: postgres
+    #   # ports:
+    #   #   - "5433:5432"
+    #   environment:
+    #     # - DEBUG=false
 
-        - DB_USER=postgres
-        - DB_PASS=mypassword
-        - DB_NAME=postgres
+    #     - DB_USER=postgres
+    #     - DB_PASS=mypassword
+    #     - DB_NAME=postgres
 
-      volumes:
-        - ./postgres:/var/lib/postgresql
+    #   volumes:
+    #     - ./postgres:/var/lib/postgresql
 
 
 
