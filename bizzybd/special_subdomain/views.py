@@ -5,14 +5,22 @@ from django.views import View
 
 class TeacherDemoView(View):
 
-    # template_name = 'home/index.html'
     template_name = 'special_subdomain/teacher.html'
 
     def get(self, request, *args, **kwargs):
 
-        print("\n\n............In teacher demo view")
-
         context = {
             'edit_mode': False,
+        }
+        return render(request, self.template_name, context)
+
+
+class TeacherDemoEditView(View):
+
+    template_name = 'special_subdomain/teacher.html'
+
+    def get(self, request, *args, **kwargs):
+        context = {
+            'edit_mode': True,
         }
         return render(request, self.template_name, context)
