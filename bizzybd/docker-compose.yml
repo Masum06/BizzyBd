@@ -3,17 +3,36 @@ version: '2'
 services:
 
     django:
-        build: .
+        image: bizzyltd/bizzybd:v2
+        # build: .
         ports:
             - 8000:8000
             - 8001:8001
-        # command: python manage.py runserver 0.0.0.0:8001
+        command: python3 manage.py runserver 0.0.0.0:8000
         # command: bash
         command: ls
         volumes:
             - .:/app
         tty: true
         stdin_open: true
+
+    #     depends_on:
+    #       - postgres
+
+    # postgres:
+    #   restart: always
+    #   image: postgres
+    #   # ports:
+    #   #   - "5433:5432"
+    #   environment:
+    #     # - DEBUG=false
+
+    #     - DB_USER=postgres
+    #     - DB_PASS=mypassword
+    #     - DB_NAME=postgres
+
+    #   volumes:
+    #     - ./postgres:/var/lib/postgresql
 
 
 
