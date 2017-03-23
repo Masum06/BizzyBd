@@ -13,7 +13,8 @@ class Website(models.Model):
 
 class Div(models.Model):
 
-    name = models.TextField()
+    website = models.ForeignKey(Website, blank=True, null=True)
+    name = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to="slim/", blank=True, null=True)
     file = models.FileField(upload_to='filepicker/', blank=True, null=True)
 
