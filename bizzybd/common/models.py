@@ -11,12 +11,26 @@ class Website(models.Model):
         return self.name
 
 
+class Page(models.Model):
+
+    name = models.CharField(max_length=50, unique=True)
+    website = models.ForeignKey(Website, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Div(models.Model):
 
     website = models.ForeignKey(Website, blank=True, null=True)
+    page = models.ForeignKey(Page, blank=True, null=True)
     name = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to="slim/", blank=True, null=True)
     file = models.FileField(upload_to='filepicker/', blank=True, null=True)
 
     def __str__(self):
-        return self.name
+
+        if self.name:
+            return self.name[0:10]
+        else:
+            return 'Div'
