@@ -304,10 +304,12 @@
 
 
 
-<!-- image+text scripts
+<!-- Slim + CKEditor scripts
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <!-- <script src="{% static 'special_subdomain/teacher/assets/ckeditor/ckeditor.js' %}"></script> -->
+{% if edit_mode %}
 <script src="http://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+{% endif %}
 
 <script src="{% static 'special_subdomain/teacher/assets/slim/slim.kickstart.min.js' %}"></script>
 
@@ -327,9 +329,11 @@
     // $('#headerBar').colorPicker();
 </script>
 
+{% if edit_mode != True %}
 <script type="text/javascript">
-  
+  $("*[contenteditable='true']").attr('contenteditable','false');
 </script>
+{% endif %}
 
 </body>
 </html>
