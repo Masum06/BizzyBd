@@ -26,8 +26,10 @@
 
 <!-- image+text+file
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+{% if edit_mode %}
 <link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/slim/slim.css' %}">
 <!-- <link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/css/slim.css' %}"> -->
+{% endif %}
 
  <!-- Materialize
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -309,9 +311,9 @@
 <!-- <script src="{% static 'special_subdomain/teacher/assets/ckeditor/ckeditor.js' %}"></script> -->
 {% if edit_mode %}
 <script src="http://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script src="{% static 'special_subdomain/teacher/assets/slim/slim.kickstart.min.js' %}"></script>
 {% endif %}
 
-<script src="{% static 'special_subdomain/teacher/assets/slim/slim.kickstart.min.js' %}"></script>
 
 <!-- Image picker+dynamic div -->
 <!-- <script src="{% static 'special_subdomain/teacher/assets/js/masum.js' %}"></script> -->
