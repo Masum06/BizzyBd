@@ -6,6 +6,12 @@
 	border-radius: 10px;
 }
 
+
+/*Glowing border for the cross button*/
+#nav-icon.open span{ 
+	box-shadow: 0 0 5px white;
+}
+
 .col-left{
 	position: absolute;
 	width: 100%;
