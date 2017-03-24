@@ -138,11 +138,11 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <section id="about" style="min-height: 100vh;">
     <div class="offset-top" id="about"></div>
-    <!-- <div class="spacer"></div> -->
+    <div class="spacer"></div>
     <div class="container-fluid">
       <div  contenteditable="true" ><h2 class="head1 color">About Me</h2></div>
 
-      <div class="col-xs-12" contenteditable="true">
+      <div id="editor1" class="col-xs-12" contenteditable="true">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
@@ -334,6 +334,31 @@
 {% if edit_mode != True %}
 <script type="text/javascript">
   $("*[contenteditable='true']").attr('contenteditable','false');
+</script>
+
+{% else %}
+<script type="text/javascript">
+  (function () {
+    // $(document).ready(function(){
+      var ready = true;
+      var changesCount = 0;
+      var editor = CKEDITOR.inline( 'editor1');
+      editor.on( 'change', function ( ) {
+        if (ready) {
+          ready = false;
+          setTimeout(getchange, 2000);
+        }
+      });
+
+      function getchange(){
+        changesCount++;
+        //$('#content2').css("display", "");
+        //$('#changes').html(changesCount.toString());
+        //$('#editorcontent2').html(editor.getData());
+        console.log(editor.getData());
+        ready = true;
+      }
+    })();
 </script>
 {% endif %}
 
