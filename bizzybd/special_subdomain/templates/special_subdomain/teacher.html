@@ -33,6 +33,9 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
+<!-- ckeditor -->
+<!-- <link href="http://sdk.ckeditor.com/theme/css/sdk-inline.css" rel="stylesheet"> -->
+
 <!-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <link href="{% static 'special_subdomain/teacher/assets/css/bootstrap.css' %}" rel="stylesheet">
@@ -52,7 +55,8 @@
 <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/modernizr.js' %}"></script>
 <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery-2.1.1.js' %}"></script>
 
-
+<!-- ckeditor cdn -->
+<!-- <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script> -->
 
 </head>
 
@@ -86,7 +90,7 @@
     </figure>
     </div>
 
-    <h3 class="color">Azad Salam</h3>
+    <div contenteditable="true"><h3 class="color">Azad Salam</h3></div>
     <div>
       <ul id="nav">
         <li class="current"><a href="#home">HOME</a></li>
@@ -110,7 +114,7 @@
 <div id="wraper">
   <div class="intro parallax" id="home">
     <!-- <div class="content color"> -->
-      <div class="spacer"></div>
+  <!--     <div class="spacer"></div>
 
 
       <h1 contenteditable="true">This is Azad!</h1>
@@ -120,7 +124,7 @@
       <div contenteditable="true">
         Hello!!! I am Abdus Salam Azad, currently working as a Lecturer at Department of Computer Science &amp Engineering (CSE) of Bangladesh University of Engineering &amp Technology (BUET). I am also pursuing my Masters of Science (M.Sc.) at the same. I have completed Bachelor of Science (B.Sc.) in July 2014 from CSE, BUET.  <br><br>
         Thanks for visiting my site. Have a good day.
-      </div>
+      </div> -->
 
     <!-- </div> -->
   </div>
@@ -130,15 +134,16 @@
     <div class="offset-top" id="about"></div>
     <div class="spacer"></div>
     <div class="container-fluid">
-      <div ><h2 class="head1 color" contenteditable="true" >About Me</h2></div>
+      <div  contenteditable="true" ><h2 class="head1 color">About Me</h2></div>
 
       <div class="col-xs-12" contenteditable="true">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+        <h1>Hi, im a h1</h1>
+        <p>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
       <div class="col-xs-12" contenteditable="true">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -149,7 +154,9 @@
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
     </div>
-       <a id="addabout" class="btn-floating btn-large waves-effect waves-light red">+</a>
+
+    <!-- add div button -->
+    <!-- <a id="addabout" class="btn-floating btn-large waves-effect waves-light red">+</a> -->
 
     <div class="spacer"></div>
   </section>
@@ -162,7 +169,7 @@
     <div class="offset-top" id="resume"></div>
     <div class="spacer"></div>
     <div class="container-fluid">
-      <h2 class="head1" contenteditable="true">Professional Experience</h2>
+      <div contenteditable="true"><h2 class="head1" >Professional Experience</h2></div>
         <div contenteditable="true">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -175,7 +182,7 @@
     </div>
     <div class="spacer"></div>
     <div class="container-fluid">
-      <h2 class="head1" contenteditable="true">Academic Background</h2>
+      <div  contenteditable="true"><h2 class="head1">Academic Background</h2></div>
       <div contenteditable="true">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -202,7 +209,7 @@
     <div class="offset-top" id="contact"></div>
     <div class="spacer"></div>
     <div class="container-fluid">
-      <h2 class="head1" contenteditable="true">Write to me</h2>
+      <div  contenteditable="true"><h2 class="head1">Write to me</h2></div>
       <div class="row contact-row">
         <div class="col-md-6 contact-form">
           <form id="contactform" data-toggle="validator" class="shake scroll-reveal">
@@ -290,17 +297,29 @@
 
 <!-- image+text scripts
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<script src="{% static 'special_subdomain/teacher/assets/ckeditor/ckeditor.js' %}"></script>
+<!-- <script src="{% static 'special_subdomain/teacher/assets/ckeditor/ckeditor.js' %}"></script> -->
+<script src="http://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+
 <script src="{% static 'special_subdomain/teacher/assets/slim/slim.kickstart.min.js' %}"></script>
+
+<!-- Image picker+dynamic div -->
+<!-- <script src="{% static 'special_subdomain/teacher/assets/js/masum.js' %}"></script> -->
+
 <!-- Materialize -->
-<script src="{% static 'special_subdomain/teacher/assets/js/masum.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
 <!-- Tiny color picker -->
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/tinyColorPicker/jqColorPicker.min.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/tinyColorPicker/jqColorPicker.min.js' %}"></script> -->
+
+
 <script type="text/javascript">
-    $('.color').colorPicker( /* optinal options */ );
+    //color_picker code
+    // $('.color').colorPicker( /* optinal options */ );
     // $('#headerBar').colorPicker();
+</script>
+
+<script type="text/javascript">
+  
 </script>
 
 </body>
