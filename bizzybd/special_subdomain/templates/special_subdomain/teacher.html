@@ -26,7 +26,7 @@
 
 <!-- image+text+file
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/slim/slim.min.css' %}">
+<link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/slim/slim.css' %}">
 <!-- <link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/css/slim.css' %}"> -->
 
  <!-- Materialize
@@ -79,14 +79,18 @@
 
 <header id="headerBar">
   <div class="col-left">
-
-
-    <div>   
+    <div>
 
     <figure>
-      <div class="slim">
+    {% if edit_mode %}
+      <div id="profile"  class="slim">
+        <img src="{% static 'special_subdomain/teacher/assets/images/azadsir2.jpg' %}">
         <input type="file"/>
       </div>
+    {% else %}
+      {% load static %}
+      <img id="profile" src="{% static 'special_subdomain/teacher/assets/images/azadsir2.jpg' %}">
+    {% endif %}
     </figure>
     </div>
 
@@ -132,7 +136,7 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <section id="about" style="min-height: 100vh;">
     <div class="offset-top" id="about"></div>
-    <div class="spacer"></div>
+    <!-- <div class="spacer"></div> -->
     <div class="container-fluid">
       <div  contenteditable="true" ><h2 class="head1 color">About Me</h2></div>
 
@@ -169,7 +173,12 @@
     <div class="offset-top" id="resume"></div>
     <div class="spacer"></div>
     <div class="container-fluid">
+
       <div contenteditable="true"><h2 class="head1" >Professional Experience</h2></div>
+
+
+
+
         <div contenteditable="true">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
