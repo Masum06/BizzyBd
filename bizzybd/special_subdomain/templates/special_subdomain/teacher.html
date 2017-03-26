@@ -96,7 +96,7 @@
     </figure>
     </div>
 
-    <div contenteditable="true"><h3 class="color">Azad Salam</h3></div>
+    <div id="editor1" contenteditable="true"><h3 class="color">Azad Salam</h3></div>
     <div>
       <ul id="nav">
         <li class="current"><a href="#home">HOME</a></li>
@@ -140,9 +140,9 @@
     <div class="offset-top" id="about"></div>
     <div class="spacer"></div>
     <div class="container-fluid">
-      <div  contenteditable="true" ><h2 class="head1 color">About Me</h2></div>
+      <div id="editor2"  contenteditable="true" ><h2 class="head1 color">About Me</h2></div>
 
-      <div id="editor1" class="col-xs-12" contenteditable="true">
+      <div id="editor3" class="col-xs-12" contenteditable="true">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
@@ -151,7 +151,7 @@
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-      <div class="col-xs-12" contenteditable="true">
+      <div id="editor4" class="col-xs-12" contenteditable="true">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -176,12 +176,12 @@
     <div class="spacer"></div>
     <div class="container-fluid">
 
-      <div contenteditable="true"><h2 class="head1" >Professional Experience</h2></div>
+      <div id="editor5" contenteditable="true"><h2 class="head1" >Professional Experience</h2></div>
 
 
 
 
-        <div contenteditable="true">
+        <div id="edotor6" contenteditable="true">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -193,8 +193,8 @@
     </div>
     <div class="spacer"></div>
     <div class="container-fluid">
-      <div  contenteditable="true"><h2 class="head1">Academic Background</h2></div>
-      <div contenteditable="true">
+      <div id="editor7" contenteditable="true"><h2 class="head1">Academic Background</h2></div>
+      <div id="editor8" contenteditable="true">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -220,7 +220,7 @@
     <div class="offset-top" id="contact"></div>
     <div class="spacer"></div>
     <div class="container-fluid">
-      <div  contenteditable="true"><h2 class="head1">Write to me</h2></div>
+      <div id="editor9" contenteditable="true"><h2 class="head1">Write to me</h2></div>
       <div class="row contact-row">
         <div class="col-md-6 contact-form">
           <form id="contactform" data-toggle="validator" class="shake scroll-reveal">
@@ -280,7 +280,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <p>COPYRIGHT © White Space 2017. ALL RIGHTS RESERVED.</p>
+          <p>COPYRIGHT ©Bizzy Ltd. 2017. ALL RIGHTS RESERVED.</p>
         </div>
       </div>
     </div>
@@ -337,28 +337,73 @@
 </script>
 
 {% else %}
-<script type="text/javascript">
+<!--script type="text/javascript">
   (function () {
-    // $(document).ready(function(){
-      var ready = true;
-      var changesCount = 0;
-      var editor = CKEDITOR.inline( 'editor1');
-      editor.on( 'change', function ( ) {
-        if (ready) {
-          ready = false;
-          setTimeout(getchange, 2000);
-        }
-      });
 
-      function getchange(){
-        changesCount++;
-        //$('#content2').css("display", "");
-        //$('#changes').html(changesCount.toString());
-        //$('#editorcontent2').html(editor.getData());
-        console.log(editor.getData());
-        ready = true;
-      }
+
+    var ready = true;
+    var editor = CKEDITOR.inline( 'editor1');
+    editor.on( 'change', function ( ) {
+    	if (ready) {
+        	ready = false;
+        	setTimeout(getchange, 2000);
+        }
+    });
+
+    function getchange(){
+    	console.log(editor.getData());
+     	ready = true;
+    }
     })();
+
+</script-->
+
+<script type="text/javascript">
+(function () {
+	var idList = $('div[contenteditable="true"]');
+	var ready = [];
+	var editor = [];
+	//console.log(idList[0].id);
+	for (var i = 0; i< idList.length; i++) {
+		ready.push(true);
+		var ck = {
+			editor : CKEDITOR.inline( idList[i].id ),
+			num : i
+		};
+		editor.push(ck);
+		console.log(editor[i].editor.name);
+	}
+
+	function send(editor, num){
+		if (ready[num]) {
+			ready[num] = false;
+			setTimeout(function(){
+				//INSERT AJAX FUNCTION HERE
+
+				var today = new Date();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+				console.log(editor.name + " saved at " + h + ":" + m + ":" + s);
+
+				ready[num] = true;
+			}, 5000);
+		}
+	}
+
+	//TO BE REPEATED WITH DJANGO
+
+	//{ % for i in range div.length % }
+	editor[0].editor.on('change', function(){
+		send(editor[0].editor, editor[0].num);
+	});
+
+	editor[1].editor.on('change', function(){
+		send(editor[1].editor, editor[1].num);
+	});
+	//{ % endfor % }
+
+})();
 </script>
 {% endif %}
 
