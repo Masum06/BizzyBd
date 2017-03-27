@@ -56,14 +56,16 @@ $(document).ready(function() {
       });
     });
 
-    $(function() {
-            //Initialize filterizr with default options
-            $('#isotopeGrid').filterizr();
-            $('.filters-group li .filter').on('click', function() {
-            $('.filters-group li .filter').removeClass('is-checked');
-            $(this).addClass('is-checked');
-    });
-    });
+    //BIZZY: THIS IS AN AMAZING TOOL FOR ANIMATING IMAGES, BUT TURNED OFF DUE TO A JQUERY VERSION ERROR
+
+    // $(function() {
+    //         //Initialize filterizr with default options
+    //         $('#isotopeGrid').filterizr();
+    //         $('.filters-group li .filter').on('click', function() {
+    //         $('.filters-group li .filter').removeClass('is-checked');
+    //         $(this).addClass('is-checked');
+    // });
+    // });
 
     /*OwlCarousels Start*/
 
