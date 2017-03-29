@@ -89,7 +89,7 @@ section .offset-top {
 	font-size: 27px;
 	color: #333;
 	margin-top: 0;
-	margin-bottom: 20px;
+	margin-bottom: 0px; /*bizzy*/
 	text-transform: uppercase;
 	font-weight: 600;
 }
@@ -353,11 +353,7 @@ section .offset-top {
  3.1. Home 
 -------------------------------- */
 
-.intro {
-	background: url(../images/ece.jpg) no-repeat;
-	background-size: cover;
-	position: relative;
-}
+
 .intro .content {
 	width: 100%;
 	height: 148px;

@@ -1,9 +1,24 @@
+h1, h2, h2 {
+	margin: 0;
+}
+
 #profile{
 /*	height: 200px;*/
 	margin-top: 10%;
 	width: 90%;
 	margin-left: 5%;
 	border-radius: 10px;
+}
+
+.intro{
+/*	background: linear-gradient(
+      rgba(0, 0, 0, 0.5), 
+      rgba(0, 0, 0, 0.5)
+    ), url(../images/ece.jpg) no-repeat;*/
+
+    background:url(../images/ece.jpg) no-repeat;
+	background-size: cover;
+	position: relative;
 }
 
 
@@ -21,10 +36,16 @@
 #home .content{
 	 height: 100%;
 	 width: 100%;
+	 color: white;
 	 /*margin: 2%;*/
 	 /*background-color: rgba(255,255,255,.65);*/
 	 background-color: rgba(0,0,0,.5);
 	 /*border-radius: 10px;*/
+}
+
+.content p{
+	color: white;
+	font-size: 16px;
 }
 
 .resume{
@@ -38,7 +59,7 @@
 *[contenteditable="true"] { 
 	outline: none;
     border-radius: 7px;
-    margin: 2px;
+    /*margin: 2px;*/
     /*border: 2px solid white;*/
     border-color: #9ecaed;
    
@@ -47,7 +68,7 @@
 *[contenteditable="true"]:focus {
     /*border: 2px solid #9ecaed;*/
     outline: none;
-    margin: 2px;
+    /*margin: 2px;*/
     box-shadow: 0 0 10px #9ecaed;
 }
 
