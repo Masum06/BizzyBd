@@ -69,6 +69,14 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 <body>
+{% if edit_mode != True %}
+    <div class="fixed-action-btn horizontal">
+        <a class="btn-floating  btn-large waves-effect waves-light  red" href="edit" target="_blank">
+            <i class="large material-icons">mode_edit</i>
+        </a>
+    </div>
+{% endif %}
+
     <div id="preloader"></div>
     <!-- Header Start
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -90,11 +98,11 @@
                 <figure>
                     {% if edit_mode %}
                     <div id="profile" class="slim">
-                        <img src="{% static 'special_subdomain/teacher/assets/images/ece.jpg' %}">
+                        <img src="{% static 'special_subdomain/teacher/assets/images/azadsir.png' %}">
                         <input type="file" />
                     </div>
                     {% else %} {% load static %}
-                    <img id="profile" src="{% static 'special_subdomain/teacher/assets/images/ece.jpg' %}"> {% endif %}
+                    <img id="profile" src="{% static 'special_subdomain/teacher/assets/images/azadsir.png' %}"> {% endif %}
                 </figure>
             </div>
 
@@ -108,7 +116,7 @@
                     <li><a href="#resume">RESUME</a></li>
                     <li><a href="#about">ABOUT ME</a></li>
                     <li><a href="#contact">CONTACT</a></li>
-                    <li><a href="course">COURSES</a></li>
+                    <!-- <li><a href="course">COURSES</a></li> -->
                     <li><a href="blog">BLOG</a></li>
                 </ul>
             </div>
@@ -146,7 +154,7 @@
 
                     <div class="card col">
                         <div class="card-content">
-                            <span class="card-title">CSE 313</span>
+                            <span class="card-title">CSE 315</span>
                             <p>Microcontroller and Microprocessor</p>
                         </div>
                         <div class="card-action">
@@ -166,7 +174,7 @@
 
                     <div class="card col ">
                         <div class="card-content">
-                            <span class="card-title">CSE 313</span>
+                            <span class="card-title">CSE 309</span>
                             <p>Digital Electronics and Pulse technique</p>
                         </div>
                         <div class="card-action">

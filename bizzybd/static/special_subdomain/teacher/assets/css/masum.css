@@ -117,3 +117,7 @@ input[type=number], input[type=search], textarea.materialize-textarea
 	margin-top: 40px;
 	margin-bottom: 40px;
 }
+
+.btn-large i {
+    font-size: 2.5rem;
+}
