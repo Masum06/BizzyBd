@@ -118,7 +118,7 @@
                     <li><a href="#about">ABOUT ME</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                     <!-- <li><a href="course">COURSES</a></li> -->
-                    <li><a href="blog">BLOG</a></li>
+                    <li><a href="#">BLOG</a></li>
                 </ul>
             </div>
 
@@ -310,19 +310,19 @@
                 </div>
                 <div class="row more-info">
                     <div class="col-md-4 col-sm-6">
-                        <div class="box-info"> <i class="fa fa-home" aria-hidden="true"></i>
+                        <div class="box-info" id="editor16" contenteditable="true"> <i class="fa fa-home" aria-hidden="true"></i>
                             <p>BUET<br> Dhaka-1000
                             </p>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                        <div class="box-info"> <i class="fa fa-phone" aria-hidden="true"></i>
+                        <div id="editor17" contenteditable="true" class="box-info"> <i class="fa fa-phone" aria-hidden="true"></i>
                             <p>+8801712345678<br> +88022167334
                             </p>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                        <div class="box-info"> <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <div class="box-info"  id="editor18" contenteditable="true"> <i class="fa fa-envelope-o" aria-hidden="true"></i>
                             <p>writetome@email.com<br> thisismy@email.ac.bd
                             </p>
                         </div>
@@ -484,7 +484,7 @@
 
                
                 //HACKING A HARDCODED LOOP IN DJANGO. FOR EACH ADDED NUMBER OF DIV, ADD AN 'x' HERE
-                {% for i in "xxxxxxxxxxxxxxx" %}
+                {% for i in "xxxxxxxxxxxxxxxxxx" %}
                     editor[ {{ forloop.counter0 }} ].editor.on('change', function() {
                         send(editor[ {{ forloop.counter0 }} ].editor, editor[ {{ forloop.counter0 }} ].num);
                     });
@@ -537,28 +537,9 @@
                 editor[10].editor.on('change', function() {
                     send(editor[10].editor, editor[10].num);
                 });
-
-                editor[4].editor.on('change', function() {
-                    send(editor[4].editor, editor[4].num);
-                });
-
-                editor[5].editor.on('change', function() {
-                    send(editor[5].editor, editor[5].num);
-                });
-
-                editor[6].editor.on('change', function() {
-                    send(editor[6].editor, editor[6].num);
-                });
-
-                editor[7].editor.on('change', function() {
-                    send(editor[7].editor, editor[7].num);
-                });
-
-                editor[8].editor.on('change', function() {
-                    send(editor[8].editor, editor[8].num);
-                }); */
+                
                 //{ % endfor % }
-
+                */
 
             })();
 
