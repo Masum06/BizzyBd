@@ -1,0 +1,4 @@
+Rules for adding a new div in teacher.html:
+
+* The div must be contenteditable= true
+* The div must have an unique id

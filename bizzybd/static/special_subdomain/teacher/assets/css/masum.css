@@ -53,8 +53,8 @@ h1, h2, h2 {
 	min-height: 100vh;
 }
 
-.container-fluid div, .container-fluid h2{
-	padding: 10px;
+.container-fluid *[contenteditable]{
+	padding: 10px; /*I dont know why I did that*/
 }
 
 *[contenteditable="true"] { 
@@ -73,3 +73,47 @@ h1, h2, h2 {
     box-shadow: 0 0 10px #9ecaed;
 }
 
+.cards{
+	height: 200px;
+	width: 100%;
+/*	background-color: red;*/
+	position: absolute;
+	bottom: 0;
+}
+
+.card{
+	padding: 0;
+	width: 30%;
+	position: relative;
+	margin: auto;
+}
+
+.col.card{
+	margin-left: 2.5%;
+}
+
+.row{
+	margin: 0;
+}
+
+@media (max-width: 982px) {
+	.cards .row{
+		display: none;
+	}
+
+}
+
+input:not([type]), input[type=text], input[type=password], 
+input[type=email], input[type=url], input[type=time], input[type=date], 
+input[type=datetime], input[type=datetime-local], input[type=tel], 
+input[type=number], input[type=search], textarea.materialize-textarea
+{
+	font-size: inherit;
+	padding: 6px;
+	box-sizing: border-box;
+}
+
+.contact-row{
+	margin-top: 40px;
+	margin-bottom: 40px;
+}

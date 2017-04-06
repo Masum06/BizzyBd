@@ -1,347 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
 
-<!-- Mobile Specific Metas
+    <!-- Mobile Specific Metas
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<!-- Page title
+    <!-- Page title
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<title>White Space Personal Portfolio Template</title>
+    <title>Bizzy Ltd.</title>
 
-{% load staticfiles %}
+    {% load staticfiles %}
 
-
-<!-- Favicon -->
-<link href="{% static 'special_subdomain/teacher/assets/favicon.png' %}" rel="shortcut icon" />
-<link href="{% static 'special_subdomain/teacher/assets/apple-touch-icon.png' %}" rel="apple-touch-icon" />
-
-<!-- Google fonts
+    <!-- Materialize
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Lora:400" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
-<!-- image+text+file
+    <!-- Favicon -->
+    <link href="{% static 'special_subdomain/teacher/assets/favicon.png' %}" rel="shortcut icon" />
+    <link href="{% static 'special_subdomain/teacher/assets/apple-touch-icon.png' %}" rel="apple-touch-icon" />
+
+    <!-- Google fonts
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-{% if edit_mode %}
-<link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/slim/slim.css' %}">
-<!-- <link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/css/slim.css' %}"> -->
-{% endif %}
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Lora:400" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
- <!-- Materialize
+    <!-- image+text+file
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    {% if edit_mode %}
+    <link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/slim/slim.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'special_subdomain/teacher/assets/css/slim.css' %}"> -->
+    {% endif %}
 
-<!-- ckeditor -->
-<!-- <link href="http://sdk.ckeditor.com/theme/css/sdk-inline.css" rel="stylesheet"> -->
 
-<!-- CSS
+
+    <!-- ckeditor -->
+    <!-- <link href="http://sdk.ckeditor.com/theme/css/sdk-inline.css" rel="stylesheet"> -->
+
+    <!-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<link href="{% static 'special_subdomain/teacher/assets/css/bootstrap.css' %}" rel="stylesheet">
-<link href="{% static 'special_subdomain/teacher/assets/css/wow.css' %}" rel="stylesheet">
-<link href="{% static 'special_subdomain/teacher/assets/css/font-awesome.min.css' %}" rel="stylesheet">
-<link href="{% static 'special_subdomain/teacher/assets/css/owl.carousel.css' %}" rel="stylesheet">
-<link href="{% static 'special_subdomain/teacher/assets/css/owl.theme.default.css' %}" rel="stylesheet">
-<link href="{% static 'special_subdomain/teacher/assets/css/base.css' %}" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="{% static 'special_subdomain/teacher/assets/css/masum.css' %}">
+    <link href="{% static 'special_subdomain/teacher/assets/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'special_subdomain/teacher/assets/css/wow.css' %}" rel="stylesheet">
+    <link href="{% static 'special_subdomain/teacher/assets/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'special_subdomain/teacher/assets/css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'special_subdomain/teacher/assets/css/owl.theme.default.css' %}" rel="stylesheet">
+    <link href="{% static 'special_subdomain/teacher/assets/css/base.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'special_subdomain/teacher/assets/css/masum.css' %}">
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/modernizr.js' %}"></script>
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery-2.1.1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/modernizr.js' %}"></script>
+    <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery-2.1.1.js' %}"></script>
 
-<!-- ckeditor cdn -->
-<!-- <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script> -->
+    <!-- ckeditor cdn -->
+    <!-- <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script> -->
 
 </head>
 
 <!-- Body Start
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
 <body>
-<div id="preloader"></div>
-<!-- Header Start
+    <div id="preloader"></div>
+    <!-- Header Start
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-<!-- Mobile Header Start
+    <!-- Mobile Header Start
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<div id="nav-icon"> <span></span> <span></span> <span></span> </div>
-<div id="headMobile">
-  <h2 class="site-title">Azad Salam</h2>
-</div>
-
-<!-- Mobile Header End
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-<header id="headerBar">
-  <div class="col-left">
-    <div>
-
-    <figure>
-    {% if edit_mode %}
-      <div id="profile"  class="slim">
-        <img src="{% static 'special_subdomain/teacher/assets/images/azadsir2.jpg' %}">
-        <input type="file"/>
-      </div>
-    {% else %}
-      {% load static %}
-      <img id="profile" src="{% static 'special_subdomain/teacher/assets/images/azadsir2.jpg' %}">
-    {% endif %}
-    </figure>
+    <div id="nav-icon"> <span></span> <span></span> <span></span> </div>
+    <div id="headMobile">
+        <h2 class="site-title">Azad Salam</h2>
     </div>
 
-    <div id="editor1" contenteditable="true"><h3 class="color">Azad Salam</h3></div>
-    <div>
-      <ul id="nav">
-        <li class="current"><a href="#home">HOME</a></li>
-        <li><a href="#about">ABOUT ME</a></li>
-        <li><a href="#resume">RESUME</a></li>
-        <li><a href="#contact">CONTACT ME</a></li>
-      </ul>
-    </div>
-
-    <div class="social">
-      <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-      <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-      <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
-      <a href=""><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-    </div>
-  </div>
-</header>
-<!--END Header -->
-<!-- wraper Start
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<div id="wraper">
-	<div class="intro" id="home">
-	    <div class="content" >
-	    	<div class="spacer"></div>
-	    	<div id="editor11" contenteditable="true"><h1 >This is Azad!</h1></div>
-	    	<div class="spacer"></div>
-
-		    <div id="editor10" class="col-xs-12 col-md-8 col-md-offset-2" contenteditable="true">
-		        Hello!!! I am Abdus Salam Azad, currently working as a Lecturer at Department of Computer Science &amp Engineering (CSE) of Bangladesh University of Engineering &amp Technology (BUET). I am also pursuing my Masters of Science (M.Sc.) at the same. I have completed Bachelor of Science (B.Sc.) in July 2014 from CSE, BUET.  <br><br>
-		        Thanks for visiting my site. Have a good day.
-		    </div>
-	    </div>
-	</div>
-
-
-
-
-  <!-- About Start
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <section id="about" style="min-height: 100vh;">
-    <div class="offset-top" id="about"></div>
-    <div class="spacer"></div>
-    <div class="container-fluid">
-      <div id="editor2"  contenteditable="true" ><h2 class="head1">About Me</h2></div>
-
-      <div id="editor3" class="col-xs-12" contenteditable="true">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-        <h1>Hi, im a h1</h1>
-        <p>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-      <div id="editor4" class="col-xs-12" contenteditable="true">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </div>
-
-    <!-- add div button -->
-    <!-- <a id="addabout" class="btn-floating btn-large waves-effect waves-light red">+</a> -->
-
-    <div class="spacer"></div>
-  </section>
-  <!-- About End
+    <!-- Mobile Header End
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <!-- Resume Start
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <section class="resume">
-    <div class="offset-top" id="resume"></div>
-    <div class="spacer"></div>
-    <div class="container-fluid">
+    <header id="headerBar">
+        <div class="col-left">
+            <div>
 
-      <div id="editor5" contenteditable="true"><h2 class="head1" >Professional Experience</h2></div>
-
-
-
-
-        <div id="edotor6" contenteditable="true">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-
-    </div>
-    <div class="spacer"></div>
-    <div class="container-fluid">
-      <div id="editor7" contenteditable="true"><h2 class="head1">Academic Background</h2></div>
-      <div id="editor8" contenteditable="true">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </div>
-    <div class="spacer"></div>
-  </section>
-  <!-- Resume End
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-  <!-- Portfolio Start
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-
-
-  <!-- Contact Start
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-  <section class="contact">
-    <div class="offset-top" id="contact"></div>
-    <div class="spacer"></div>
-    <div class="container-fluid">
-      <div id="editor9" contenteditable="true"><h2 class="head1">Write to me</h2></div>
-      <div class="row contact-row">
-        <div class="col-md-6 contact-form">
-          <form id="contactform" data-toggle="validator" class="shake scroll-reveal">
-            <div class="form-group">
-              <input type="text" class="form-control" id="name" placeholder="Your name" required data-error="Name missing">
-              <div class="help-block with-errors"></div>
+                <figure>
+                    {% if edit_mode %}
+                    <div id="profile" class="slim">
+                        <img src="{% static 'special_subdomain/teacher/assets/images/ece.jpg' %}">
+                        <input type="file" />
+                    </div>
+                    {% else %} {% load static %}
+                    <img id="profile" src="{% static 'special_subdomain/teacher/assets/images/ece.jpg' %}"> {% endif %}
+                </figure>
             </div>
-            <div class="form-group">
-              <input type="email" class="form-control" id="email" placeholder="Your email" required>
-              <div class="help-block with-errors"></div>
-            </div>
-            <div class="form-group">
-              <textarea id="message" class="form-control" rows="6" placeholder="Write your message here" required></textarea>
-              <div class="help-block with-errors"></div>
-            </div>
-            <div class="float-left">
-              <button type="submit" id="form-submit" class="btn btn-default btn-submit">SEND MESSAGE</button>
-            </div>
-            <div id="msgSubmit" class="h3 text-center hidden"></div>
-          </form>
-        </div>
-        <div class="col-md-6">
-          <div id="map"> </div>
-        </div>
-      </div>
-      <div class="row more-info">
-        <div class="col-md-4 col-sm-6">
-          <div class="box-info"> <i class="fa fa-home" aria-hidden="true"></i>
-            <p>8544 Walnut<br>
-              St.
-              Burnsville, MN 55337</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="box-info"> <i class="fa fa-phone" aria-hidden="true"></i>
-            <p>+1-952-356-9282<br>
-              +1-385-200-5438</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="box-info"> <i class="fa fa-envelope-o" aria-hidden="true"></i>
-            <p>johndoe@yourdomain.com<br>
-              info@yourdomain.com</p>
-          </div>
-        </div>
-      </div>
-      <div class="spacer"></div>
-    </div>
-  </section>
 
-  <!-- Contact End
+            <div id="editor1" contenteditable="true">
+                <h3 class="color">Azad Salam</h3>
+            </div>
+            <div>
+                <ul id="nav">
+                    <li class="current"><a href="#home">HOME</a></li>
+                    <li><a href="#research">RESEARCH</a></li>
+                    <li><a href="#resume">RESUME</a></li>
+                    <li><a href="#about">ABOUT ME</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="course">COURSES</a></li>
+                    <li><a href="blog">BLOG</a></li>
+                </ul>
+            </div>
+
+            <div class="social">
+                <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </header>
+    <!--END Header -->
+    <!-- wraper Start
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div id="wraper">
+        <div class="intro" id="home">
+            <div class="content">
+                <div class="spacer"></div>
+                <div id="editor11" contenteditable="true">
+                    <h1>This is Azad!</h1>
+                </div>
+                <div class="spacer"></div>
+
+                <div id="editor10" class="col-xs-12 col-md-8 col-md-offset-2" contenteditable="true">
+                    Hello!!! I am Abdus Salam Azad, currently working as a Lecturer at Department of Computer Science &amp; Engineering (CSE) of Bangladesh University of Engineering &amp; Technology (BUET). I am also pursuing my Masters of Science (M.Sc.) at the same. I have completed Bachelor of Science (B.Sc.) in July 2014 from CSE, BUET. <br><br> Thanks for visiting my site. Have a good day.
+                </div>
+
+            </div>
+
+            <div class="cards">
+                <!-- <div class="cards"> -->
+                <div class="row">
+                    <!-- <div class="col s12 m6"> -->
+
+                    <div class="card col">
+                        <div class="card-content">
+                            <span class="card-title">CSE 313</span>
+                            <p>Microcontroller and Microprocessor</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Go to course page</a>
+                        </div>
+                    </div>
+
+                    <div class="card col ">
+                        <div class="card-content">
+                            <span class="card-title">CSE 313</span>
+                            <p>Operating System</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Go to course page</a>
+                        </div>
+                    </div>
+
+                    <div class="card col ">
+                        <div class="card-content">
+                            <span class="card-title">CSE 313</span>
+                            <p>Digital Electronics and Pulse technique</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Go to course page</a>
+                        </div>
+                    </div>
+
+                    <!-- </div> -->
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Research -->
+
+        <section id="research" style="min-height: 100vh;">
+            <div class="offset-top" id="research"></div>
+            <div class="spacer"></div>
+            <div class="container-fluid">
+                <div id="editor13" contenteditable="true">
+                    <h2 class="head1">Research</h2>
+                </div>
+
+                <div id="editor12" class="col-xs-12" contenteditable="true">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+
+                <div class="spacer"></div>
+        </section>
+
+        <!-- Research end -->
+
+
+        <!-- Resume Start
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <section class="resume">
+            <div class="offset-top" id="resume"></div>
+            <div class="spacer"></div>
+            <div class="container-fluid">
+
+                <div id="editor5" contenteditable="true">
+                    <h2 class="head1">Professional Experience</h2>
+                </div>
+
+                <div id="edotor6" contenteditable="true">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+
+            </div>
+            <div class="spacer"></div>
+            <div class="container-fluid">
+                <div id="editor7" contenteditable="true">
+                    <h2 class="head1">Academic Background</h2>
+                </div>
+                <div id="editor8" contenteditable="true">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </div>
+            <div class="spacer"></div>
+        </section>
+        <!-- Resume End
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <!--  Footer Start
+
+
+        <!-- About Start
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <section id="about" style="min-height: 100vh;">
+            <div class="offset-top" id="about"></div>
+            <div class="spacer"></div>
+            <div class="container-fluid">
+                <div id="editor2" contenteditable="true">
+                    <h2 class="head1">About Me</h2>
+                </div>
+
+                <div id="editor4" class="col-xs-12" contenteditable="true">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </div>
+
+            <!-- add div button -->
+            <!-- <a id="addabout" class="btn-floating btn-large waves-effect waves-light red">+</a> -->
+
+            <div class="spacer"></div>
+        </section>
+        <!-- About End
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+
+
+
+        <!-- Contact Start
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+        <section class="contact">
+            <div class="offset-top" id="contact"></div>
+            <div class="spacer"></div>
+            <div class="container-fluid">
+                <div id="editor9" contenteditable="true">
+                    <h2 class="head1">Write to me</h2>
+                </div>
+                <div class="row contact-row">
+                    <div class="col-md-6 contact-form">
+                        <form id="contactform" data-toggle="validator" class="shake scroll-reveal">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="Your name" required data-error="Name missing">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Your email" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" class="form-control" rows="6" placeholder="Write your message here" required></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="float-left">
+                                <button type="submit" id="form-submit" class="btn btn-default btn-submit">SEND MESSAGE</button>
+                            </div>
+                            <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="map"> </div>
+                    </div>
+                </div>
+                <div class="row more-info">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="box-info"> <i class="fa fa-home" aria-hidden="true"></i>
+                            <p>BUET<br> Dhaka-1000
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="box-info"> <i class="fa fa-phone" aria-hidden="true"></i>
+                            <p>+8801712345678<br> +88022167334
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="box-info"> <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <p>writetome@email.com<br> thisismy@email.ac.bd
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+            </div>
+        </section>
+
+        <!-- Contact End
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+        <!--  Footer Start
      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <footer class="footer">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <p>COPYRIGHT © <a href="www.bizzybd.com" target="_blank">Bizzy Ltd</a>. 2017. ALL RIGHTS RESERVED.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!--  Footer End
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>COPYRIGHT © <a href="www.bizzybd.com" target="_blank">Bizzy Ltd</a>. 2017. ALL RIGHTS RESERVED.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--  Footer End
      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</div>
-<!--END wraper -->
+        </div>
+        <!--END wraper -->
 
 
 
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/queryloader2.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/title-animated.js' %}"></script> <!-- Resource jQuery -->
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery.nav.js' %}"></script>
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery.appear.js' %}"></script>
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/owl.carousel.js' %}"></script>
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery-parallax.js' %}"></script>
+        <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/queryloader2.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/title-animated.js' %}"></script>
+        <!-- Resource jQuery -->
+        <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery.nav.js' %}"></script>
+        <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery.appear.js' %}"></script>
+        <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/owl.carousel.js' %}"></script>
+        <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery-parallax.js' %}"></script>
 
-<!-- PROBLEM -->
-<!-- <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery.filterizr.js' %}"></script>  -->
+        <!-- PROBLEM -->
+        <!-- <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/jquery.filterizr.js' %}"></script>  -->
 
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/contact-form/js/validator.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/contact-form/js/form-scripts.js' %}"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDs3mrTgrYd6_hJS50x4Sha1lPtS2T-_JA"></script> 
-<script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/function.js' %}"></script>
+        <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/contact-form/js/validator.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/contact-form/js/form-scripts.js' %}"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDs3mrTgrYd6_hJS50x4Sha1lPtS2T-_JA"></script>
+        <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/js/function.js' %}"></script>
 
 
 
-<!-- Slim + CKEditor scripts
+        <!-- Slim + CKEditor scripts
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-{% if edit_mode %}
-<script src="{% static 'special_subdomain/teacher/assets/ckeditor/ckeditor.js' %}"></script>
-<!-- <script src="http://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script> -->
-<script src="{% static 'special_subdomain/teacher/assets/slim/slim.kickstart.min.js' %}"></script>
-{% endif %}
+        {% if edit_mode %}
+        <script src="{% static 'special_subdomain/teacher/assets/ckeditor/ckeditor.js' %}"></script>
+        <!-- <script src="http://cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script> -->
+        <script src="{% static 'special_subdomain/teacher/assets/slim/slim.kickstart.min.js' %}"></script>
+        {% endif %}
 
 
-<!-- Image picker+dynamic div -->
-<!-- <script src="{% static 'special_subdomain/teacher/assets/js/masum.js' %}"></script> -->
+        <!-- Image picker+dynamic div -->
+        <!-- <script src="{% static 'special_subdomain/teacher/assets/js/masum.js' %}"></script> -->
 
-<!-- Materialize -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+        <!-- Materialize -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
-<!-- Tiny color picker -->
-<!-- <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/tinyColorPicker/jqColorPicker.min.js' %}"></script> -->
+        <!-- Tiny color picker -->
+        <!-- <script type="text/javascript" src="{% static 'special_subdomain/teacher/assets/tinyColorPicker/jqColorPicker.min.js' %}"></script> -->
 
 
-<script type="text/javascript">
-    //color_picker code
-    // $('.color').colorPicker( /* optinal options */ );
-    // $('#headerBar').colorPicker();
-</script>
+        <script type="text/javascript">
+            //color_picker code
+            // $('.color').colorPicker( /* optinal options */ );
+            // $('#headerBar').colorPicker();
 
-{% if edit_mode != True %}
-<script type="text/javascript">
-  $("*[contenteditable='true']").attr('contenteditable','false');
-</script>
+        </script>
 
-{% else %}
-<!--script type="text/javascript">
+        {% if edit_mode != True %}
+        <script type="text/javascript">
+            $("*[contenteditable='true']").attr('contenteditable', 'false');
+
+        </script>
+
+        {% else %}
+        <!--script type="text/javascript">
   (function () {
 
 
@@ -362,83 +417,85 @@
 
 </script-->
 
-<script type="text/javascript">
-(function () {
-	var idList = $('div[contenteditable="true"]');
-	var ready = [];
-	var editor = [];
-	//console.log(idList[0].id);
-	for (var i = 0; i< idList.length; i++) {
-		ready.push(true);
-		var ck = {
-			editor : CKEDITOR.inline( idList[i].id ),
-			num : i
-		};
-		editor.push(ck);
-		console.log(editor[i].editor.name);
-	}
+        <script type="text/javascript">
+            (function() {
+                var idList = $('div[contenteditable="true"]');
+                var ready = [];
+                var editor = [];
+                //console.log(idList[0].id);
+                for (var i = 0; i < idList.length; i++) {
+                    ready.push(true);
+                    var ck = {
+                        editor: CKEDITOR.inline(idList[i].id),
+                        num: i
+                    };
+                    editor.push(ck);
+                    console.log(editor[i].editor.name);
+                }
 
-	function send(editor, num){
-		if (ready[num]) {
-			ready[num] = false;
-			setTimeout(function(){
-				//INSERT AJAX FUNCTION HERE
+                function send(editor, num) {
+                    if (ready[num]) {
+                        ready[num] = false;
+                        setTimeout(function() {
+                            //INSERT AJAX FUNCTION HERE
 
-				var today = new Date();
-				var h = today.getHours();
-				var m = today.getMinutes();
-				var s = today.getSeconds();
-				console.log(editor.name + " saved at " + h + ":" + m + ":" + s);
+                            var today = new Date();
+                            var h = today.getHours();
+                            var m = today.getMinutes();
+                            var s = today.getSeconds();
+                            console.log(editor.name + " saved at " + h + ":" + m + ":" + s);
 
-				ready[num] = true;
-			}, 5000);
-		}
-	}
+                            ready[num] = true;
+                        }, 5000);
+                    }
+                }
 
-	//TO BE REPEATED WITH DJANGO
+                //TO BE REPEATED WITH DJANGO
 
-	//{ % for i in range div.length % }
-	editor[0].editor.on('change', function(){
-		send(editor[0].editor, editor[0].num);
-	});
+                //{ % for i in range div.length % }
+                editor[0].editor.on('change', function() {
+                    send(editor[0].editor, editor[0].num);
+                });
 
-	editor[1].editor.on('change', function(){
-		send(editor[1].editor, editor[1].num);
-	});
+                editor[1].editor.on('change', function() {
+                    send(editor[1].editor, editor[1].num);
+                });
 
-	editor[2].editor.on('change', function(){
-		send(editor[2].editor, editor[2].num);
-	});
+                editor[2].editor.on('change', function() {
+                    send(editor[2].editor, editor[2].num);
+                });
 
-	editor[3].editor.on('change', function(){
-		send(editor[3].editor, editor[3].num);
-	});
+                editor[3].editor.on('change', function() {
+                    send(editor[3].editor, editor[3].num);
+                });
 
-	editor[4].editor.on('change', function(){
-		send(editor[4].editor, editor[4].num);
-	});
+                editor[4].editor.on('change', function() {
+                    send(editor[4].editor, editor[4].num);
+                });
 
-	editor[5].editor.on('change', function(){
-		send(editor[5].editor, editor[5].num);
-	});
+                editor[5].editor.on('change', function() {
+                    send(editor[5].editor, editor[5].num);
+                });
 
-	editor[6].editor.on('change', function(){
-		send(editor[6].editor, editor[6].num);
-	});
+                editor[6].editor.on('change', function() {
+                    send(editor[6].editor, editor[6].num);
+                });
 
-	editor[7].editor.on('change', function(){
-		send(editor[7].editor, editor[7].num);
-	});
+                editor[7].editor.on('change', function() {
+                    send(editor[7].editor, editor[7].num);
+                });
 
-	editor[8].editor.on('change', function(){
-		send(editor[8].editor, editor[8].num);
-	});
-	//{ % endfor % }
+                editor[8].editor.on('change', function() {
+                    send(editor[8].editor, editor[8].num);
+                });
+                //{ % endfor % }
 
 
-})();
-</script>
-{% endif %}
+            })();
+
+        </script>
+        {% endif %}
 
 </body>
+
 </html>
