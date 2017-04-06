@@ -137,12 +137,12 @@
         <div class="intro" id="home">
             <div class="content">
                 <div class="spacer"></div>
-                <div id="editor11" contenteditable="true">
+                <div id="editor2" contenteditable="true">
                     <h1>This is Azad!</h1>
                 </div>
                 <div class="spacer"></div>
 
-                <div id="editor10" class="col-xs-12 col-md-8 col-md-offset-2" contenteditable="true">
+                <div id="editor3" class="col-xs-12 col-md-8 col-md-offset-2" contenteditable="true">
                     Hello!!! I am Abdus Salam Azad, currently working as a Lecturer at Department of Computer Science &amp; Engineering (CSE) of Bangladesh University of Engineering &amp; Technology (BUET). I am also pursuing my Masters of Science (M.Sc.) at the same. I have completed Bachelor of Science (B.Sc.) in July 2014 from CSE, BUET. <br><br> Thanks for visiting my site. Have a good day.
                 </div>
 
@@ -154,7 +154,7 @@
                     <!-- <div class="col s12 m6"> -->
 
                     <div class="card col">
-                        <div class="card-content">
+                        <div id="editor4" class="card-content" contenteditable="true">
                             <span class="card-title">CSE 315</span>
                             <p>Microcontroller and Microprocessor</p>
                         </div>
@@ -164,7 +164,7 @@
                     </div>
 
                     <div class="card col ">
-                        <div class="card-content">
+                        <div id="editor5" class="card-content" contenteditable="true">
                             <span class="card-title">CSE 313</span>
                             <p>Operating System</p>
                         </div>
@@ -174,7 +174,7 @@
                     </div>
 
                     <div class="card col ">
-                        <div class="card-content">
+                        <div id="editor6" class="card-content" contenteditable="true">
                             <span class="card-title">CSE 309</span>
                             <p>Digital Electronics and Pulse technique</p>
                         </div>
@@ -196,11 +196,11 @@
             <div class="offset-top" id="research"></div>
             <div class="spacer"></div>
             <div class="container-fluid">
-                <div id="editor13" contenteditable="true">
+                <div id="editor7" contenteditable="true">
                     <h2 class="head1">Research</h2>
                 </div>
 
-                <div id="editor12" class="col-xs-12" contenteditable="true">
+                <div id="editor8" class="col-xs-12" contenteditable="true">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -222,21 +222,21 @@
             <div class="spacer"></div>
             <div class="container-fluid">
 
-                <div id="editor5" contenteditable="true">
+                <div id="editor9" contenteditable="true">
                     <h2 class="head1">Professional Experience</h2>
                 </div>
 
-                <div id="edotor6" contenteditable="true">
+                <div id="edotor10" contenteditable="true">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>
 
             </div>
             <div class="spacer"></div>
             <div class="container-fluid">
-                <div id="editor7" contenteditable="true">
+                <div id="editor11" contenteditable="true">
                     <h2 class="head1">Academic Background</h2>
                 </div>
-                <div id="editor8" contenteditable="true">
+                <div id="editor12" contenteditable="true">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>
             </div>
@@ -253,11 +253,11 @@
             <div class="offset-top" id="about"></div>
             <div class="spacer"></div>
             <div class="container-fluid">
-                <div id="editor2" contenteditable="true">
+                <div id="editor13" contenteditable="true">
                     <h2 class="head1">About Me</h2>
                 </div>
 
-                <div id="editor4" class="col-xs-12" contenteditable="true">
+                <div id="editor14" class="col-xs-12" contenteditable="true">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>
             </div>
@@ -280,7 +280,7 @@
             <div class="offset-top" id="contact"></div>
             <div class="spacer"></div>
             <div class="container-fluid">
-                <div id="editor9" contenteditable="true">
+                <div id="editor15" contenteditable="true">
                     <h2 class="head1">Write to me</h2>
                 </div>
                 <div class="row contact-row">
@@ -482,10 +482,18 @@
                     }
                 }
 
-                //TO BE REPEATED WITH DJANGO
+               
+                //HACKING A HARDCODED LOOP IN DJANGO. FOR EACH ADDED NUMBER OF DIV, ADD AN 'x' HERE
+                {% for i in "xxxxxxxxxxxxxxx" %}
+                    editor[ {{ forloop.counter0 }} ].editor.on('change', function() {
+                        send(editor[ {{ forloop.counter0 }} ].editor, editor[ {{ forloop.counter0 }} ].num);
+                    });
+                {% endfor %}
 
+
+                //TO BE REPEATED WITH DJANGO
                 //{ % for i in range div.length % }
-                editor[0].editor.on('change', function() {
+                /*editor[0].editor.on('change', function() {
                     send(editor[0].editor, editor[0].num);
                 });
 
@@ -520,6 +528,35 @@
                 editor[8].editor.on('change', function() {
                     send(editor[8].editor, editor[8].num);
                 });
+
+
+                editor[9].editor.on('change', function() {
+                    send(editor[9].editor, editor[9].num);
+                });
+
+                editor[10].editor.on('change', function() {
+                    send(editor[10].editor, editor[10].num);
+                });
+
+                editor[4].editor.on('change', function() {
+                    send(editor[4].editor, editor[4].num);
+                });
+
+                editor[5].editor.on('change', function() {
+                    send(editor[5].editor, editor[5].num);
+                });
+
+                editor[6].editor.on('change', function() {
+                    send(editor[6].editor, editor[6].num);
+                });
+
+                editor[7].editor.on('change', function() {
+                    send(editor[7].editor, editor[7].num);
+                });
+
+                editor[8].editor.on('change', function() {
+                    send(editor[8].editor, editor[8].num);
+                }); */
                 //{ % endfor % }
 
 
