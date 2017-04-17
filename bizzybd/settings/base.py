@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'cards',
     'special_subdomain',
     'ajax_request',
+    'lazysignup',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -138,6 +139,7 @@ AUTHENTICATION_BACKENDS = (
     'social.backends.google.GoogleOAuth2',
     'social.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+    'lazysignup.backends.LazySignupBackend',
 )
 
 
