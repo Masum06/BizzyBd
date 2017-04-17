@@ -1,0 +1,251 @@
+
+/* line 5, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.1.0.alpha.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.1.0.alpha.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.1.0.alpha.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.1.0.alpha.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.1.0.alpha.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.1.0.alpha.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.1.0.alpha.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.1.0.alpha.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.1.0.alpha.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 21, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/susy-2.2.12/sass/susy/language/susy/_box-sizing.scss */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 1, ../../../components/sass/_base.scss */
+body {
+  /*font: 300 1em/1.5em "Raleway", "Titillium Web", "Bree Serif", "Cuprum", "Ubuntu", "Helvetica Neue", "Sansita", Helvetica, Arial, sans-serif;*/
+  background: #FFFFFF;
+  color: #000000;
+}
+
+/* line 7, ../../../components/sass/_base.scss */
+h1, h2, h3, h4, h5, h6 {
+  /*font: 300 2em/2em "Raleway", "Titillium Web", "Bree Serif", "Cuprum", "Ubuntu", "Helvetica Neue", "Sansita", Helvetica, Arial, sans-serif;*/
+  color: #333333;
+  font-weight: 700;
+}
+
+/* line 13, ../../../components/sass/_base.scss */
+strong {
+  font-weight: 700;
+}
+
+/* line 17, ../../../components/sass/_base.scss */
+p {
+  font-weight: 300;
+  padding-bottom: 10px;
+}
+
+
+
+/* line 1, ../../../components/sass/_layout.scss */
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 8, ../../../components/sass/_layout.scss */
+.scene {
+  position: relative;
+  padding: 20px 0;
+}
+/* line 12, ../../../components/sass/_layout.scss */
+.scene article {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 12, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/susy-2.2.12/sass/susy/output/support/_clearfix.scss */
+.scene article:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+@media (min-width: 1200px) {
+  /* line 8, ../../../components/sass/_layout.scss */
+  .scene {
+    padding: 40px 0;
+  }
+}
+@media (min-width: 960px) {
+  /* line 22, ../../../components/sass/_layout.scss */
+  .scene article {
+    max-width: 60em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/susy-2.2.12/sass/susy/output/support/_clearfix.scss */
+  .scene article:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
+/* line 1, ../../../components/sass/modules/_nav.scss */
+#slide-out {
+  background-size: 100%;
+  background-color: #E8E8E8;
+}
+/* line 10, ../../../components/sass/modules/_nav.scss */
+#slide-out li {
+  padding-top: 10px;
+  /*padding-left: 20px;*/
+}
+
+/* line 16, ../../../components/sass/modules/_nav.scss */
+#slide-out li a {
+  font-family: 'Cuprum';
+  font-size: 1.2em;
+  letter-spacing: .3px;
+}
+
+/* line 22, ../../../components/sass/modules/_nav.scss */
+.brand {
+  margin-bottom: 20px;
+}
+/* line 24, ../../../components/sass/modules/_nav.scss */
+.brand h3 {
+  font-size: 1.8em;
+  font-weight: bold;
+  text-align: center;
+  /*font-family: 'Bree Serif';*/
+}
+/* line 30, ../../../components/sass/modules/_nav.scss */
+.brand p {
+  font-size: 1.2em;
+  text-align: center;
+  border-bottom: 1px solid grey;
+  /*font-family: 'Titillium Web';*/
+}
+
+/* line 39, ../../../components/sass/modules/_nav.scss */
+.button-collapse {
+  position: fixed;
+  top: 20px;
+  left: 40px;
+}
+/* line 44, ../../../components/sass/modules/_nav.scss */
+.button-collapse i {
+  font-size: 35px;
+}
+
+/* line 1, ../../../components/sass/modules/_welcome.scss */
+.main {
+  margin-left: 300px;
+  margin-right: 0px;
+  padding-left: 60px;
+  padding-right: 50px;
+}
+@media (min-width: 0) and (max-width: 680px) {
+  /* line 1, ../../../components/sass/modules/_welcome.scss */
+  .main {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/susy-2.2.12/sass/susy/output/support/_clearfix.scss */
+  .main:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  /* line 10, ../../../components/sass/modules/_welcome.scss */
+  .main h1 {
+    text-align: center;
+  }
+  /* line 14, ../../../components/sass/modules/_welcome.scss */
+  .main p {
+    text-align: center;
+  }
+}
+@media (min-width: 680px) and (max-width: 960px) {
+  /* line 1, ../../../components/sass/modules/_welcome.scss */
+  .main {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/susy-2.2.12/sass/susy/output/support/_clearfix.scss */
+  .main:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  /* line 22, ../../../components/sass/modules/_welcome.scss */
+  .main h1 {
+    text-align: center;
+  }
+  /* line 26, ../../../components/sass/modules/_welcome.scss */
+  .main p {
+    text-align: center;
+  }
+}
+/* line 32, ../../../components/sass/modules/_welcome.scss */
+.main h1 {
+  font-size: 3em;
+  margin-top: 40px;
+  /*font-family: 'Bree Serif';*/
+  margin-bottom: 50px;
+}

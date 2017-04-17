@@ -8,7 +8,7 @@ from lazysignup.decorators import allow_lazy_user
 
 class TeacherDemoView(View):
 
-    template_name = 'special_subdomain/teacher.html'
+    template_name = 'special_subdomain/teacher/teacher.html'
 
     def get(self, request, *args, **kwargs):
         request.session.set_expiry(300)
@@ -23,7 +23,7 @@ class TeacherDemoView(View):
 
 class TeacherDemoEditView(View):
 
-    template_name = 'special_subdomain/teacher.html'
+    template_name = 'special_subdomain/teacher/teacher.html'
 
     @method_decorator(allow_lazy_user)
     def get(self, request, *args, **kwargs):
@@ -32,5 +32,7 @@ class TeacherDemoEditView(View):
         }
         print("session key")
         print(request.user.is_authenticated())
+        print(request.user)
+        print(request.user.username)
         print(request.session.session_key)
         return render(request, self.template_name, context)

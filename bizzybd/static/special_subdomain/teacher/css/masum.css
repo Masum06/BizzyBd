@@ -1,0 +1,59 @@
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text|Play|Raleway);
+
+body{
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.1em;
+}
+
+h1, h2, h3, h4 {
+	  font-family: 'Crimson Text', serif;
+}
+
+.main{
+	min-height: 80vh;
+}
+
+ul#slide-out li a{
+  font-family: 'Crimson Text', serif;
+  text-align: center;
+  color: black;
+  font-size: 1.3em;
+}
+
+.brand{
+	font-family: 'Play', sans-serif;
+	font-size: 1.2em;
+}
+
+.active {
+	color: #27C0D8 !important;
+	font-size: 1.5em !important;
+}
+
+.main p {
+    text-indent: 50px;
+}
+a{
+	text-decoration: none !important;
+}
+
+h2{
+	font-size: 2rem;
+}
+
+.foot{
+	margin-top: 40px;
+	height: 50px;
+	background-color: grey;
+	color: white;
+	padding-top: 15px;
+}
+
+.foot div{
+	float: right;
+	margin-right: 30px;
+}
+
+img{
+	clear: right;
+}
