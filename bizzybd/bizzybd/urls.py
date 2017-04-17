@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^', include('home.urls', namespace='home')),
     url(r'^cards/', include('cards.urls', namespace='cards')),
     # for python social auth
-    url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'', include('social.apps.django_app.urls', namespace='social')),
     # for django default authentication system
     url('', include('django.contrib.auth.urls', namespace='auth')),
     url(r'^accounts/login/$', login, name='login'),

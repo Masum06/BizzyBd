@@ -8,11 +8,11 @@ class WebsiteAdmin(admin.ModelAdmin):
 
 
 class PageAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'sequence_no', 'website')
 
 
 class DivAdmin(admin.ModelAdmin):
-    list_display = ('website', 'name', 'image', 'file')
+    list_display = ('website', 'page', 'sequence_no', 'get_name', 'image', 'file')
 
 
 admin.site.register(Website, WebsiteAdmin)

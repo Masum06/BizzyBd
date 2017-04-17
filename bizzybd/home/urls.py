@@ -8,5 +8,4 @@ urlpatterns = [
     url(r'^slim/$', views.SlimView.as_view(), name='slim'),
     url(r'^filepicker/$', views.FilepickerView.as_view(), name='filepicker'),
     # this url is important as it will be used to implement lazy signup
-    url(r'^convert/', include('lazysignup.urls')),
 ]
