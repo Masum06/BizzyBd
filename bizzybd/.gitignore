@@ -1,7 +1,6 @@
 .idea/
 __pycache__/
 *.pyc
-wsgi.py
 media/
 static/common/google_analytics.js
 bash_commands/
