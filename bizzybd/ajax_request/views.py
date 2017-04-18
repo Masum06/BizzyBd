@@ -102,6 +102,9 @@ class SlimAync(View):
 
         else:
             div = Div.objects.filter(name="ImageTest").first()
+            print(div)
+            if not div:
+                Div.objects.create(name="ImageTest")
             div.image = myfile
             div.save()
 

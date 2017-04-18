@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^editor/$', views.EditorView.as_view(), name='editor'),
     url(r'^slim/$', views.SlimView.as_view(), name='slim'),
     url(r'^filepicker/$', views.FilepickerView.as_view(), name='filepicker'),
+    url(r'^teacher/$', views.TeacherView.as_view(), name='teacherview'),
     # this url is important as it will be used to implement lazy signup
 ]

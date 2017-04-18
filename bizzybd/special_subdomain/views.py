@@ -36,13 +36,30 @@ class TeacherDemoEditView(View):
         if not website:
             website = Website.objects.create(
                 name=request.user.username, owner=request.user, theme=theme)
+            # forking theme to the website. creating a new website with default theme data
             divs = Div.objects.filter(theme=theme, website=None)
             for div in divs:
                 div.id = None
                 div.save()
                 div.website = website
                 div.save()
+            website.div1 = theme.div1
+            website.div2 = theme.div2
+            website.div3 = theme.div3
+            website.div4 = theme.div4
+            website.div5 = theme.div5
+            website.div6 = theme.div6
+            website.div7 = theme.div7
+            website.div8 = theme.div8
+            website.div9 = theme.div9
+            website.div10 = theme.div10
+            website.save()
+
             print("\n\n ******** created new website for this user ********\n\n")
+
+        print("Theme and website div1")
+        print(theme.div1)
+        print(website.div1)
         pages = Page.objects.filter(theme=website.theme).order_by('sequence_no')
         print(pages)
         full_pages = []
@@ -58,6 +75,8 @@ class TeacherDemoEditView(View):
             'div_count_str': div_count_str,
 
         }
+
+        # print(website.div1.image.url)
 
         return render(request, self.template_name, context)
 

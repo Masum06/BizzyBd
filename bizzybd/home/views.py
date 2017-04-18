@@ -113,6 +113,26 @@ class FilepickerView(View):
         return render(request, self.template_name, context)
 
 
+
+class TeacherView(View):
+
+    template_name = 'common/teacher.html'
+
+    # @method_decorator(allow_lazy_user)
+    def get(self, request, *args, **kwargs):
+        # website = get_object_or_404(Website, name='teacher')
+        # pages = Page.objects.filter(website=website)
+        # print(pages)
+        context = {
+            'edit_mode': True,
+            # 'website': website,
+            # 'pages': pages,
+        }
+
+        return render(request, self.template_name, context)
+
+
+
 def get_subdomain_name(request):
     title = request.get_host()
     position = title.find(settings.DOMAIN_NAME)

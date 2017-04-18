@@ -100,7 +100,9 @@
                     {% if edit_mode %}
                     <div id="profile" class="slim">
                         <!-- <img src="{% static 'special_subdomain/teacher/assets/images/azadsir.png' %}"> -->
-                        <img src="{{ website.div1.image.url }}">
+                        <!-- <img src="{{ website.div1.image.url }}"> -->
+                        <!-- <img src="/media/a.png"> -->
+                        <img src="{% static 'media/ab.png' %}">
 
                         <input type="file" />
                     </div>
@@ -229,7 +231,7 @@
                     $("#editbtn").fadeIn(500);
                 });
             });
-            
+
             function timerIncrement() {
                 idleTime = idleTime + 1;
                 if (idleTime > 3) { // 20 minutes
@@ -283,7 +285,7 @@
                     editor.push(ck);
                     console.log(editor[i].editor.name);
                     // console.log(editor[i].div_id);
-           
+
                 }
 
                 // for(i = 0; i < editor.length; i++){
@@ -336,7 +338,7 @@
                     }
                 }
 
-               
+
                 //HACKING A HARDCODED LOOP IN DJANGO. FOR EACH ADDED NUMBER OF DIV, ADD AN 'x' HERE
                 {% for i in  div_count_str  %}
                     editor[ {{ forloop.counter0 }} ].editor.on('change', function() {
@@ -391,7 +393,7 @@
                 editor[10].editor.on('change', function() {
                     send(editor[10].editor, editor[10].num);
                 });
-                
+
                 //{ % endfor % }
                 */
 

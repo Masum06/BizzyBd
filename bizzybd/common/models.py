@@ -9,7 +9,17 @@ CKEDITOR_DIV = "<div id='{0}' contenteditable='true'>\
 class Theme(models.Model):
 
     name = models.CharField(max_length=50, unique=True)
-    # owner = models.ForeignKey(User)
+
+    div1 = models.ForeignKey('Div', blank=True, null=True, related_name='t_div1')
+    div2 = models.ForeignKey('Div', blank=True, null=True, related_name='t_div2')
+    div3 = models.ForeignKey('Div', blank=True, null=True, related_name='t_div3')
+    div4 = models.ForeignKey('Div', blank=True, null=True, related_name='t_div4')
+    div5 = models.ForeignKey('Div', blank=True, null=True, related_name='t_div5')
+    div6 = models.ForeignKey('Div', blank=True, null=True, related_name='t_div6')
+    div7 = models.ForeignKey('Div', blank=True, null=True, related_name='t_div7')
+    div8 = models.ForeignKey('Div', blank=True, null=True, related_name='t_div8')
+    div9 = models.ForeignKey('Div', blank=True, null=True, related_name='t_div9')
+    div10 = models.ForeignKey('Div', blank=True, null=True, related_name='t_div10')
 
     def __str__(self):
         return self.name
@@ -20,6 +30,17 @@ class Website(models.Model):
     name = models.CharField(max_length=50, unique=True)
     owner = models.ForeignKey(User, blank=True, null=True)
     theme = models.ForeignKey(Theme, blank=True, null=True)
+
+    div1 = models.ForeignKey('Div', blank=True, null=True, related_name='w_div1')
+    div2 = models.ForeignKey('Div', blank=True, null=True, related_name='w_div2')
+    div3 = models.ForeignKey('Div', blank=True, null=True, related_name='w_div3')
+    div4 = models.ForeignKey('Div', blank=True, null=True, related_name='w_div4')
+    div5 = models.ForeignKey('Div', blank=True, null=True, related_name='w_div5')
+    div6 = models.ForeignKey('Div', blank=True, null=True, related_name='w_div6')
+    div7 = models.ForeignKey('Div', blank=True, null=True, related_name='w_div7')
+    div8 = models.ForeignKey('Div', blank=True, null=True, related_name='w_div8')
+    div9 = models.ForeignKey('Div', blank=True, null=True, related_name='w_div9')
+    div10 = models.ForeignKey('Div', blank=True, null=True, related_name='w_div10')
 
     def __str__(self):
         return self.name
@@ -73,7 +94,6 @@ class Div(models.Model):
     def __str__(self):
 
         return self.get_name()
-
 
     def get_name(self):
 

@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.views.generic import TemplateView
-
+from django.conf import settings
+from django.conf.urls.static import static
 from special_subdomain import views
 
 urlpatterns = [
@@ -13,4 +14,4 @@ urlpatterns = [
         name='special_subdomain_CSE313_evaluation'),
     url(r'^ajax/div/$', views.AjaxUpdateDiv.as_view(), name='ajax_div'),
     url(r'^original/edit/$', views.TeacherDemoEditView2.as_view(), name='teacher_demo-edit'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
