@@ -85,8 +85,8 @@
     <!-- Mobile Header Start
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <div id="nav-icon"> <span></span> <span></span> <span></span> </div>
-    <div id="headMobile">
-        <h2 class="site-title">Azad Salam</h2>
+    <div id="headMobile" align='right'>
+        <h2 class="site-title">{{ website.div2|safe }}</h2>
     </div>
 
     <!-- Mobile Header End
@@ -106,12 +106,12 @@
 
                     </div>
                     {% else %} {% load static %}
-                    <img id="profile" src="{% static 'special_subdomain/teacher/assets/images/azadsir.png' %}"> {% endif %}
+                    <img id="profile" src="{{ website.div1.image.url }}"> {% endif %}
                 </figure>
             </div>
 
-            <div id="editor1" contenteditable="true">
-                <h3 class="color">Azad Salam</h3>
+            <div id="div{{website.div2.id}}" contenteditable="true">
+                <h3 class='color'>{{ website.div2|safe }}</h3>
             </div>
             <div>
                 <ul id="nav">
@@ -294,13 +294,13 @@
                                         // console.log("\n\n ajax successful");
                                         // console.log(json);
                                         ready[num] = true;
-                                        Materialize.toast("Saved Successfully! :)", 500);
+                                        Materialize.toast("Saved Successfully! :)", 1000);
 
                                     },
                                     error: function(xhr, textStatus, errorThrown){
                                        console.log('Sending ajax request again in ' + time * 2);
                                        send(editor, editor.num, time * 2);
-                                       Materialize.toast("Sorry! :( Could not save. Retrying again.", 500);
+                                       Materialize.toast("Sorry! :( Could not save. Retrying again.", 1000);
                                     }
 
 
@@ -315,7 +315,7 @@
                 //HACKING A HARDCODED LOOP IN DJANGO. FOR EACH ADDED NUMBER OF DIV, ADD AN 'x' HERE
                 {% for i in  div_count_str  %}
                     editor[ {{ forloop.counter0 }} ].editor.on('change', function() {
-                        send(editor[ {{ forloop.counter0 }} ], editor[ {{ forloop.counter0 }} ].num, 1000);
+                        send(editor[ {{ forloop.counter0 }} ], editor[ {{ forloop.counter0 }} ].num, 5000);
                     });
                 {% endfor %}
 
