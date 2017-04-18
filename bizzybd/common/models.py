@@ -6,10 +6,20 @@ CKEDITOR_DIV = "<div id='{0}' contenteditable='true'>\
                 </div>"
 
 
+class Theme(models.Model):
+
+    name = models.CharField(max_length=50, unique=True)
+    # owner = models.ForeignKey(User)
+
+    def __str__(self):
+        return self.name
+
+
 class Website(models.Model):
 
     name = models.CharField(max_length=50, unique=True)
     owner = models.ForeignKey(User)
+    theme = models.ForeignKey(Theme)
 
     def __str__(self):
         return self.name
@@ -19,6 +29,7 @@ class Page(models.Model):
 
     name = models.CharField(max_length=50, unique=True)
     website = models.ForeignKey(Website, blank=True, null=True)
+    theme = models.ForeignKey(Theme, blank=True, null=True)
     sequence_no = models.PositiveSmallIntegerField(default=1000)
     content = models.TextField(blank=True, null=True)
     div_format = models.TextField(blank=True, null=True)
@@ -52,12 +63,12 @@ class Page(models.Model):
 class Div(models.Model):
 
     website = models.ForeignKey(Website, blank=True, null=True)
+    theme = models.ForeignKey(Theme, blank=True, null=True)
     page = models.ForeignKey(Page, blank=True, null=True)
     sequence_no = models.PositiveSmallIntegerField(default=1000)
     name = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to="slim/", blank=True, null=True)
     file = models.FileField(upload_to='filepicker/', blank=True, null=True)
-
 
     def __str__(self):
 
