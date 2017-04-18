@@ -8,7 +8,7 @@ class ThemeAdmin(admin.ModelAdmin):
 
 
 class WebsiteAdmin(admin.ModelAdmin):
-    pass
+	list_display = ('name', 'owner', 'theme')
 
 
 class PageAdmin(admin.ModelAdmin):

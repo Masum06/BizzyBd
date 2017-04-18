@@ -18,8 +18,8 @@ class Theme(models.Model):
 class Website(models.Model):
 
     name = models.CharField(max_length=50, unique=True)
-    owner = models.ForeignKey(User)
-    theme = models.ForeignKey(Theme)
+    owner = models.ForeignKey(User, blank=True, null=True)
+    theme = models.ForeignKey(Theme, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -37,10 +37,10 @@ class Page(models.Model):
     def __str__(self):
         return self.name
 
-    def get_full_page(self):
+    def get_full_page(self, website):
         if self.content:
             # s = s.format("div_id", "id", "bbbbbbbbbbbbbb")
-            divs = Div.objects.filter(page=self).order_by("sequence_no")
+            divs = Div.objects.filter(page=self, website=website).order_by("sequence_no")
 
             arguments = []
             arguments.append(self.name)
@@ -73,6 +73,7 @@ class Div(models.Model):
     def __str__(self):
 
         return self.get_name()
+
 
     def get_name(self):
 

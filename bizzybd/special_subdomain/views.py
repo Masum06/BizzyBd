@@ -29,13 +29,28 @@ class TeacherDemoEditView(View):
 
     @method_decorator(allow_lazy_user)
     def get(self, request, *args, **kwargs):
-        website = get_object_or_404(Website, name='teacher')
+        theme = Theme.objects.get(name="Teacher")
+        website = Website.objects.filter(owner=request.user, theme=theme).last()
+        if not website:
+            website = Website.objects.create(
+                name=request.user.username, owner=request.user, theme=theme)
+            divs = Div.objects.filter(theme=theme, website=None)
+            for div in divs:
+                div.id = None
+                div.save()
+                div.website = website
+                div.save()
+            print("\n\n ******** created new website for this user ********\n\n")
         pages = Page.objects.filter(theme=website.theme).order_by('sequence_no')
         print(pages)
+        full_pages = []
+        for page in pages:
+            full_pages.append(page.get_full_page(website))
         context = {
             'edit_mode': True,
             'website': website,
             'pages': pages,
+            'full_pages': full_pages,
         }
 
         return render(request, self.template_name, context)
@@ -55,6 +70,5 @@ class TeacherDemoEditView2(View):
             'website': website,
             'pages': pages,
         }
-
 
         return render(request, self.template_name, context)

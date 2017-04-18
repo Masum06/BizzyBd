@@ -132,8 +132,8 @@
 
 
 
-        {% for page in pages %}
-            {{ page.get_full_page|safe }}
+        {% for page in full_pages %}
+            {{ page|safe }}
         {% endfor %}
 
 
