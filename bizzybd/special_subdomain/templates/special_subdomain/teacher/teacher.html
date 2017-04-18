@@ -148,6 +148,8 @@
 
 
 
+
+
         <footer class="footer">
             <div class="container-fluid">
                 <div class="row">
@@ -292,11 +294,13 @@
                                         // console.log("\n\n ajax successful");
                                         // console.log(json);
                                         ready[num] = true;
+                                        Materialize.toast("Saved Successfully! :)", 500);
 
                                     },
                                     error: function(xhr, textStatus, errorThrown){
                                        console.log('Sending ajax request again in ' + time * 2);
                                        send(editor, editor.num, time * 2);
+                                       Materialize.toast("Sorry! :( Could not save. Retrying again.", 500);
                                     }
 
 

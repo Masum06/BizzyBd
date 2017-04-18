@@ -64,7 +64,8 @@ class TeacherDemoEditView(View):
         print(pages)
         full_pages = []
         for page in pages:
-            full_pages.append(page.get_full_page(website))
+            if page.get_full_page(website):
+                full_pages.append(page.get_full_page(website))
         div_count = Div.objects.filter(website=website).count()
         div_count_str = 'X' * div_count
         context = {
