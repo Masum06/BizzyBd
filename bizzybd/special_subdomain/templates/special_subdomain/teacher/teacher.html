@@ -131,6 +131,11 @@
 
 
 
+    <!-- This form is needed to send post request to the server -->
+    <form action="/ajax/div/" method="post" id='ajax_div_form' name="form">
+      {% csrf_token %}
+    </form>
+
 
         {% for page in full_pages %}
             {{ page|safe }}
@@ -201,6 +206,8 @@
 
         </script>
 
+        <script src="{% static 'ajax_requests/django_ajax_setup.js' %}"></script>
+
         {% if edit_mode != True %}
         <script type="text/javascript">
             $("*[contenteditable='true']").attr('contenteditable', 'false');
@@ -257,18 +264,36 @@
                 var idList = $('div[contenteditable="true"]');
                 var ready = [];
                 var editor = [];
+                var ajax_url =  "/ajax/div/";
                 //console.log(idList[0].id);
+                console.log("Edited");
                 for (var i = 0; i < idList.length; i++) {
                     ready.push(true);
+                    var ed = CKEDITOR.inline(idList[i].id);
+                    var div_id = ed.name.substr(3);
+                    // console.log(div_id);
                     var ck = {
-                        editor: CKEDITOR.inline(idList[i].id),
-                        num: i
+                        'editor': ed,
+                        'num': i,
+                        'div_id': div_id,
                     };
+                    // ck.id = ck.editor.name.substr(3);
                     editor.push(ck);
                     console.log(editor[i].editor.name);
+                    // console.log(editor[i].div_id);
+           
                 }
 
-                function send(editor, num) {
+                // for(i = 0; i < editor.length; i++){
+                //   console.log(editor[i]);
+                //   editor[ i ].editor.on('change', function() {
+                //       send(editor[ i ].editor, editor[ i ].num);
+
+                //   });
+                //   console.log("event added");
+                // }
+
+                function send(editor, num, time) {
                     if (ready[num]) {
                         ready[num] = false;
                         setTimeout(function() {
@@ -279,17 +304,41 @@
                             var m = today.getMinutes();
                             var s = today.getSeconds();
                             console.log(editor.name + " saved at " + h + ":" + m + ":" + s);
+                            // console.log(editor.getData());
+                            // console.log("printing id");
+                            // console.log(editor.div_id);
 
+                            $.ajax({
+                                    "type"     : "POST",
+                                    "data"   : {'div_id': editor.div_id, 'text': editor.editor.getData()},
+                                    // "data"   : $("#form_id_{{div.id}}").serialize(),
+                                    "url"      : ajax_url,
+                                    "dataType" : "json",
+                                    "cache"    : false,
+                                    "success"  : function(json) {
+                                        // console.log("\n\n ajax successful");
+                                        // console.log(json);
+                                        ready[num] = true;
+
+                                    },
+                                    error: function(xhr, textStatus, errorThrown){
+                                       console.log('Sending ajax request again in ' + time * 2);
+                                       send(editor, editor.num, time * 2);
+                                    }
+
+
+                            });
                             ready[num] = true;
-                        }, 5000);
+
+                        }, time);
                     }
                 }
 
                
                 //HACKING A HARDCODED LOOP IN DJANGO. FOR EACH ADDED NUMBER OF DIV, ADD AN 'x' HERE
-                {% for i in "xxxxxxxxxxxxxxxxxx" %}
+                {% for i in  div_count_str  %}
                     editor[ {{ forloop.counter0 }} ].editor.on('change', function() {
-                        send(editor[ {{ forloop.counter0 }} ].editor, editor[ {{ forloop.counter0 }} ].num);
+                        send(editor[ {{ forloop.counter0 }} ], editor[ {{ forloop.counter0 }} ].num, 1000);
                     });
                 {% endfor %}
 

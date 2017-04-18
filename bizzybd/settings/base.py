@@ -159,6 +159,7 @@ SUBDOMAIN_URLCONFS = {
     # 'api': 'myproject.urls.api',
     'cards': 'cards.urls',
     'teacher': 'special_subdomain.urls',
+    # 'ajax': 'special_subdomain.urls',
     '.': 'subdomain.urls',
 
 }
