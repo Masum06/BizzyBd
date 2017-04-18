@@ -120,6 +120,49 @@ class AjaxUpdateDiv(View):
         return HttpResponse(json, content_type='application/javascript')
 
 
+class AjaxUpdateSlim(View):
+
+    # @method_decorator(csrf_exempt)
+    # def dispatch(self, request, *args, **kwargs):
+    #     return super(SlimAync, self).dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        print("\n\n In get method")
+
+        status = {'status': True}
+        json = simplejson.dumps(status)
+        return HttpResponse(json, content_type='application/javascript')
+
+    def post(self, request, *args, **kwargs):
+
+        # print("ajax request post")
+        # # print(request.POST)
+        # print("\n\n\n\nFILES ARE BELOW")
+        # print(request.FILES)
+        # print(request.POST)
+        # print("\n\n")
+        slim_data = request.POST.get("slim[]")
+        slim_data = simplejson.loads(slim_data)
+        meta = slim_data['meta']
+        field = slim_data['output']['field']
+        # print(field)
+        # print(meta)
+        # print(type(meta))
+        div_id = meta['div_id']
+        file = request.FILES.get(field)
+
+        if(div_id and file):
+            div = Div.objects.get(id=div_id)
+            if div:
+                div.image = file
+                div.save()
+
+
+        status = {'status': True}
+        json = simplejson.dumps(status)
+        return HttpResponse(json, content_type='application/javascript')
+
+
 class TeacherDemoEditView2(View):
 
     template_name = 'special_subdomain/teacher/teacher2.html'

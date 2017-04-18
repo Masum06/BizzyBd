@@ -98,11 +98,12 @@
 
                 <figure>
                     {% if edit_mode %}
-                    <div id="profile" class="slim">
+                    <div id="profile" class="slim" data-service="/ajax/slim/" data-will-request="ajaxSetup"  data-meta-div_id={{ website.div1.id }}>
                         <!-- <img src="{% static 'special_subdomain/teacher/assets/images/azadsir.png' %}"> -->
                         <img src="{{ website.div1.image.url }}">
 
                         <input type="file" />
+
                     </div>
                     {% else %} {% load static %}
                     <img id="profile" src="{% static 'special_subdomain/teacher/assets/images/azadsir.png' %}"> {% endif %}
@@ -137,7 +138,7 @@
     <form action="/ajax/div/" method="post" id='ajax_div_form' name="form">
       {% csrf_token %}
     </form>
-
+    {% csrf_token %}
 
         {% for page in full_pages %}
             {{ page|safe }}
@@ -208,59 +209,29 @@
 
         </script>
 
-        <script src="{% static 'ajax_requests/django_ajax_setup.js' %}"></script>
+
 
         {% if edit_mode != True %}
+
+
+
+
+
         <script type="text/javascript">
             $("*[contenteditable='true']").attr('contenteditable', 'false');
-
-            //FADE IN THE EDIT BUTTON ON INACTIVITY
-           /* $(document).ready(function () {
-                //Increment the idle time counter every second.
-                var idleInterval = setInterval(timerIncrement, 1000); // 1 second
-
-                //Zero the idle timer on mouse movement.
-                $(this).mousemove(function (e) {
-                    idleTime = 0;
-                    $("#editbtn").fadeIn(500);
-                });
-                $(this).keypress(function (e) {
-                    idleTime = 0;
-                    $("#editbtn").fadeIn(500);
-                });
-            });
-            
-            function timerIncrement() {
-                idleTime = idleTime + 1;
-                if (idleTime > 3) { // 20 minutes
-                    $("#editbtn").fadeOut(500);
-                }
-            }*/
 
         </script>
 
         {% else %}
-        <!--script type="text/javascript">
-  (function () {
 
-
-    var ready = true;
-    var editor = CKEDITOR.inline( 'editor1');
-    editor.on( 'change', function ( ) {
-    	if (ready) {
-        	ready = false;
-        	setTimeout(getchange, 2000);
-        }
-    });
-
-    function getchange(){
-    	console.log(editor.getData());
-     	ready = true;
-    }
-    })();
-
-</script-->
-
+        <script type="text/javascript">
+            
+            function ajaxSetup(xhr){
+                xhr.setRequestHeader('X-CSRFToken', "{{csrf_token}}");
+                console.log("Ajax has been set up");
+            }
+        </script>
+        <script src="{% static 'ajax_requests/django_ajax_setup.js' %}"></script>
         <script type="text/javascript">
             (function() {
                 var idList = $('div[contenteditable="true"]');
@@ -344,56 +315,6 @@
                     });
                 {% endfor %}
 
-
-                //TO BE REPEATED WITH DJANGO
-                //{ % for i in range div.length % }
-                /*editor[0].editor.on('change', function() {
-                    send(editor[0].editor, editor[0].num);
-                });
-
-                editor[1].editor.on('change', function() {
-                    send(editor[1].editor, editor[1].num);
-                });
-
-                editor[2].editor.on('change', function() {
-                    send(editor[2].editor, editor[2].num);
-                });
-
-                editor[3].editor.on('change', function() {
-                    send(editor[3].editor, editor[3].num);
-                });
-
-                editor[4].editor.on('change', function() {
-                    send(editor[4].editor, editor[4].num);
-                });
-
-                editor[5].editor.on('change', function() {
-                    send(editor[5].editor, editor[5].num);
-                });
-
-                editor[6].editor.on('change', function() {
-                    send(editor[6].editor, editor[6].num);
-                });
-
-                editor[7].editor.on('change', function() {
-                    send(editor[7].editor, editor[7].num);
-                });
-
-                editor[8].editor.on('change', function() {
-                    send(editor[8].editor, editor[8].num);
-                });
-
-
-                editor[9].editor.on('change', function() {
-                    send(editor[9].editor, editor[9].num);
-                });
-
-                editor[10].editor.on('change', function() {
-                    send(editor[10].editor, editor[10].num);
-                });
-                
-                //{ % endfor % }
-                */
 
             })();
 

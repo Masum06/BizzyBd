@@ -13,5 +13,6 @@ urlpatterns = [
         template_name='special_subdomain/teacher/CSE313_evaluation.html'),
         name='special_subdomain_CSE313_evaluation'),
     url(r'^ajax/div/$', views.AjaxUpdateDiv.as_view(), name='ajax_div'),
+    url(r'^ajax/slim/$', views.AjaxUpdateSlim.as_view(), name='ajax_slim'),
     url(r'^original/edit/$', views.TeacherDemoEditView2.as_view(), name='teacher_demo-edit'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
