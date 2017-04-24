@@ -1,10 +1,12 @@
-from django.conf.urls import url
+from django.contrib import admin
+from django.conf.urls import include, url
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 from special_subdomain import views
 
 urlpatterns = [
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.TeacherDemoView.as_view(), name='teacher_demo'),
     url(r'^edit/$', views.TeacherDemoEditView.as_view(), name='teacher_demo-edit'),
     url(r'^CSE313/$', TemplateView.as_view(template_name='special_subdomain/teacher/CSE313.html'),
