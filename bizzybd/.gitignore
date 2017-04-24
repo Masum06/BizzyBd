@@ -16,4 +16,5 @@ server_static
 ../resource
 ../resource/
 server_static
+media
 static/special_subdomain/teacher/assets/tinyColorPicker
